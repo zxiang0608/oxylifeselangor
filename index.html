@@ -1,1 +1,1694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision Care - Oxylife</title>
+    
+    <!-- GOOGLE FONTS LOADING -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================
+           1. VARIABLES & RESET (The Design System)
+           ========================================= */
+        :root {
+            /* FONT FAMILIES */
+            --font-primary: 'Merriweather', 'Noto Serif SC', serif; /* Trust / Headings */
+            --font-secondary: 'Inter', 'Noto Sans SC', sans-serif; /* Clarity / Body / UI */
+
+            /* CLINICAL COLORS */
+            --primary-blue: #0f4c81;       
+            --text-heading: #0F2138;       /* Dark Navy - Headings */
+            --text-body: #334155;          /* Dark Grey - Body (No pure black) */
+            --text-light: #64748b;         
+            --text-legal: #94A3B8;         /* Muted Grey - Footer */
+            --bg-white: #ffffff;
+            
+            /* TECH/SAAS COLORS */
+            --accent-teal: #06b6d4;        
+            --accent-bg: #e0f2fe;          
+            --success-green: #10b981;
+            --highlight-bg: #f0fdffa3;     
+            
+            /* NEW COMPARISON TABLE COLORS */
+            --bg-cream: #FFFCF5;
+            --brand-orange: #F2994A;
+            --status-green: #219653;
+            --status-red: #EB5757;
+            --status-grey: #BDBDBD;
+            --text-sub: #666666;
+
+            /* NEW TESTIMONIAL COLORS (CLINICAL REPORT) */
+            --data-bg: #E0FDF4;          
+            --data-text: #064E3B;        
+            --label-text: #059669;       
+            --badge-bg: #FFF7ED;         
+            --badge-text: #D97706;       
+            --verified-bg: #D1FAE5;      
+            --verified-text: #065F46;    
+
+            /* WHATSAPP GREEN */
+            --whatsapp-green: #25D366;
+
+            /* SPACING & SHAPE */
+            --radius-md: 12px;             
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1); 
+            --container-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-secondary); /* Default to Inter for clarity */
+            line-height: 1.6;
+            color: var(--text-body);
+            background-color: #f8fafc;
+        }
+
+        /* TYPOGRAPHY UTILITIES */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-primary); /* Default headings to Merriweather */
+            color: var(--text-heading);
+            line-height: 1.5;
+            font-weight: 700;
+        }
+
+        /* Common Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .text-center { text-align: center; }
+
+        .btn-primary {
+            display: inline-block;
+            font-family: var(--font-secondary);
+            background: var(--primary-blue);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px; 
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            font-size: 1.1rem;
+        }
+
+        .btn-primary:hover {
+            background: #0a355c;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Special Green Button Class */
+        .btn-green {
+            background-color: var(--whatsapp-green) !important;
+            color: white !important;
+        }
+        
+        .btn-green:hover {
+            background-color: #1DA851 !important; /* Slightly darker green for hover */
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            font-family: var(--font-secondary);
+            background: transparent;
+            border: 1px solid var(--primary-blue);
+            color: var(--primary-blue);
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-bg);
+        }
+
+        /* =========================================
+           2. NAVIGATION
+           ========================================= */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-secondary); /* Brand name usually clear sans-serif */
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            font-family: var(--font-secondary);
+            text-decoration: none;
+            color: var(--text-heading);
+            font-weight: 500;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* =========================================
+           3. HERO SECTION (FONT MAPPING APPLIED)
+           ========================================= */
+        .hero-section {
+            background: linear-gradient(180deg, #fff 0%, #f0f9ff 100%);
+            padding: 60px 0 80px;
+            text-align: center;
+        }
+
+        .trust-badge {
+            font-family: var(--font-secondary); /* INTER - CLEAR */
+            background: var(--accent-bg);
+            color: var(--primary-blue);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase; /* Uppercase for sharpness */
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        .hero-section h1 {
+            font-family: var(--font-primary); /* MERRIWEATHER - TRUST */
+            font-size: 3.2rem;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            color: var(--text-heading);
+            letter-spacing: -1px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-secondary); /* INTER - CLARITY */
+            font-size: 1.2rem;
+            font-weight: 400; /* Regular */
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-media {
+            margin: 0 auto 40px;
+            max-width: 800px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 4px solid white;
+        }
+
+        .hero-media img {
+            width: 100%;
+            display: block;
+        }
+
+        /* =========================================
+           3.5. CERTIFICATIONS & MDA
+           ========================================= */
+        .cert-bar {
+            background: white;
+            padding: 30px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .cert-header {
+            font-family: var(--font-secondary);
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .cert-logos {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .cert-item {
+            font-family: var(--font-secondary);
+            font-weight: 700;
+            color: #94a3b8;
+            font-size: 1.2rem;
+            border: 2px solid #e2e8f0;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        .mda-section {
+            padding: 60px 0;
+            background: white;
+            text-align: center;
+        }
+
+        .mda-content h3 {
+            font-family: var(--font-primary);
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .mda-content p {
+            font-family: var(--font-secondary);
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #4B5563; 
+            font-weight: 500;
+            font-size: 1.05rem;
+        }
+
+        /* =========================================
+           4. PROBLEM CARDS
+           ========================================= */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header h2 {
+            font-family: var(--font-primary);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .problem-card h3 {
+            font-family: var(--font-primary);
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .problem-card p {
+            font-family: var(--font-secondary);
+        }
+
+        .problem-card.highlight {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+        }
+
+        .problem-card.highlight h3, 
+        .problem-card.highlight p {
+            color: white;
+        }
+
+        /* =========================================
+           5. PRODUCT SECTION (Technology)
+           ========================================= */
+        .product-layout {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .product-text { flex: 1; }
+        
+        .product-image { 
+            flex: 0.9; 
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        .product-image img { width: 100%; display: block; }
+
+        .tag {
+            font-family: var(--font-secondary);
+            color: var(--accent-teal);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            display: block;
+            letter-spacing: 1px;
+        }
+
+        .product-text h2 {
+            font-family: var(--font-primary);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            line-height: 1.1;
+            color: var(--primary-blue);
+        }
+
+        .product-text .desc-lead {
+            font-family: var(--font-secondary);
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .tech-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .tech-icon {
+            font-family: var(--font-secondary);
+            background: var(--accent-bg);
+            color: var(--primary-blue);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .tech-content h4 {
+            font-family: var(--font-secondary); /* Clean sans for list headers */
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--primary-blue);
+            margin-bottom: 4px;
+        }
+
+        .tech-content p {
+            font-family: var(--font-secondary);
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* =========================================
+           6. COMPARISON TABLE (FONT MAPPING APPLIED)
+           ========================================= */
+        .table-section { background: white; padding-top: 40px; }
+
+        .table-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .table-header h2 {
+            font-family: var(--font-primary);
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            padding-top: 30px; 
+            padding-bottom: 30px;
+            margin: 0 -15px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate; 
+            border-spacing: 0;
+            min-width: 900px;
+        }
+
+        th, td {
+            padding: 24px 20px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: middle;
+            background: white;
+        }
+        
+        thead th:not(.row-header),
+        tbody td:not(.row-header) {
+            text-align: center;
+        }
+
+        th.row-header, td.row-header {
+            font-family: var(--font-secondary); /* INTER BOLD */
+            font-weight: 700;
+            color: var(--primary-blue);
+            position: sticky;
+            left: 0;
+            z-index: 20; 
+            background: white;
+            border-right: 1px solid #f1f5f9;
+            min-width: 120px;
+            width: 150px;
+            text-align: left;
+        }
+
+        thead th {
+            font-family: var(--font-secondary); /* INTER BOLD */
+            background: white;
+            color: var(--text-heading);
+            font-weight: 700;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .col-oxylife {
+            background-color: var(--bg-cream) !important;
+            border-left: 2px solid var(--brand-orange) !important;
+            border-right: 2px solid var(--brand-orange) !important;
+            position: relative;
+            z-index: 10;
+            font-size: 1.05rem;
+            box-shadow: 0px 8px 24px rgba(0,0,0,0.12);
+        }
+
+        th.col-oxylife {
+            border-top: 2px solid var(--brand-orange) !important;
+            position: relative;
+        }
+        
+        tr:last-child td.col-oxylife {
+            border-bottom: 2px solid var(--brand-orange) !important;
+        }
+
+        @media (max-width: 768px) {
+            .table-responsive {
+                margin: 0 -20px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            
+            th.row-header, td.row-header {
+                position: sticky;
+                left: 0;
+                width: 110px;
+                min-width: 110px;
+                font-size: 0.9rem;
+            }
+
+            .col-oxylife {
+                position: sticky !important;
+                left: 110px; 
+                z-index: 15; 
+                min-width: 160px;
+                box-shadow: 4px 0 12px rgba(0,0,0,0.1) !important;
+            }
+            
+            th.row-header { z-index: 30; }
+            th.col-oxylife { z-index: 25; }
+            td.row-header { z-index: 30; }
+            td.col-oxylife { z-index: 25; }
+        }
+
+        .rec-badge {
+            font-family: var(--font-secondary);
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--brand-orange);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .status-main {
+            font-family: var(--font-secondary); /* INTER EXTRA BOLD */
+            display: block;
+            font-weight: 800; 
+            color: var(--text-heading);
+            margin-bottom: 4px;
+        }
+        
+        .status-sub {
+            font-family: var(--font-secondary);
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            font-weight: 400;
+        }
+
+        .icon-circle {
+            font-family: var(--font-secondary);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            margin-right: 8px;
+            vertical-align: text-bottom;
+        }
+
+        .icon-pos { background-color: var(--status-green); }
+        .icon-neg { background-color: var(--status-red); }
+        .icon-neu { background-color: var(--status-grey); }
+
+        tbody tr {
+            height: 80px; 
+        }
+
+        /* =========================================
+           7. TESTIMONIALS (FONT MAPPING APPLIED)
+           ========================================= */
+        .testimonials-section {
+            padding-bottom: 80px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            align-items: start;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid #f1f5f9; 
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            height: 100%;
+        }
+
+        .testi-data-box {
+            background-color: var(--data-bg); 
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            text-align: center;
+            margin-bottom: 15px; 
+            position: relative;
+        }
+
+        .testi-data-box.center {
+            justify-content: center;
+        }
+
+        .testi-stat-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .testi-number {
+            font-family: var(--font-secondary); /* INTER EXTRA BOLD */
+            color: var(--data-text); 
+            font-weight: 800;
+            font-size: 1.75rem; 
+            line-height: 1.2;
+        }
+
+        .testi-label {
+            font-family: var(--font-secondary); /* INTER UPPERCASE */
+            color: var(--label-text); 
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+
+        .testi-duration {
+            font-family: var(--font-secondary);
+            background-color: var(--badge-bg);
+            color: var(--badge-text); 
+            border-radius: 20px;
+            padding: 6px 16px;
+            font-size: 12px;
+            font-weight: 600;
+            width: max-content;
+            margin: -28px auto 10px auto; 
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .testi-quote {
+            font-family: var(--font-primary); /* MERRIWEATHER (VOICE) */
+            font-style: normal; /* Normal Style as requested */
+            color: #4B5563; 
+            line-height: 1.6;
+            margin: 10px 0 20px 0;
+            font-size: 0.95rem;
+            min-height: 80px; 
+        }
+
+        .testi-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto; 
+            border-top: 1px solid #f1f5f9;
+            padding-top: 15px;
+        }
+
+        .testi-user {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testi-avatar {
+            font-family: var(--font-secondary);
+            width: 40px;
+            height: 40px;
+            background-color: #E0E7FF;
+            color: #3730a3;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .testi-info {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .testi-name {
+            font-family: var(--font-secondary); /* INTER BOLD */
+            font-weight: 700;
+            color: #000;
+            font-size: 0.9rem;
+            line-height: 1.2;
+        }
+
+        .testi-role {
+            font-family: var(--font-secondary);
+            font-size: 0.75rem;
+            color: #94a3b8;
+        }
+
+        .testi-verified {
+            font-family: var(--font-secondary);
+            background-color: var(--verified-bg);
+            color: var(--verified-text);
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        /* =========================================
+           8. CTA SECTION
+           ========================================= */
+        .cta-section {
+            background: var(--primary-blue);
+            color: white;
+            padding: 80px 0;
+        }
+
+        .cta-layout {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .cta-content { flex: 1; }
+
+        .cta-content h2 {
+            font-family: var(--font-primary);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            line-height: 1.2;
+            color: white; /* Explicitly set to white for CTA */
+        }
+
+        .cta-content h4 {
+            font-family: var(--font-secondary);
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .cta-content p {
+            font-family: var(--font-secondary);
+            opacity: 0.9;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .cta-visual {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .cta-visual img {
+            max-width: 100%;
+            border-radius: var(--radius-md);
+        }
+
+        /* =========================================
+           9. FOOTER (UPDATED - 3 COLUMNS)
+           ========================================= */
+        .footer {
+            background: var(--text-heading); /* Dark Navy */
+            color: white;
+            padding: 60px 0;
+            font-family: var(--font-secondary); /* INTER FOR LEGAL/INFO */
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: left;
+        }
+
+        .footer h3 {
+            font-family: var(--font-primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .footer h4 {
+            font-family: var(--font-secondary);
+            color: white; /* Headers in white */
+            font-size: 1rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .footer-col p {
+            font-family: var(--font-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            opacity: 0.8;
+            margin-bottom: 15px;
+            color: var(--text-legal); /* Muted Grey */
+        }
+        
+        /* Overriding text color for footer content to ensure legibility on dark bg */
+        .footer-col p, .footer-col span, .footer-col a {
+             color: #E2E8F0; /* Lighter than legal variable for dark background readability */
+        }
+
+        .footer-links {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .footer-links a { 
+            color: #E2E8F0; 
+            text-decoration: none; 
+            transition: color 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-teal);
+        }
+
+        .cert-row {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cert-label {
+            font-weight: 700;
+            color: #fff;
+            min-width: 80px;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+        
+        .cert-value {
+            font-family: monospace; 
+            font-size: 1rem;
+        }
+
+        /* =========================================
+           10. STICKY WHATSAPP BUTTON
+           ========================================= */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: var(--whatsapp-green);
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* =========================================
+           11. ANIMATIONS
+           ========================================= */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================================
+           12. MOBILE
+           ========================================= */
+        @media (max-width: 768px) {
+            .hero-section h1 { font-size: 2.2rem; }
+            .product-layout, .cta-layout { flex-direction: column; }
+            .product-layout { flex-direction: column-reverse; } 
+            
+            .nav-container { flex-direction: column; gap: 15px; }
+            .cert-logos { gap: 20px; }
+            .nav-links { gap: 15px; }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 25px;
+            }
+            
+            /* Stack footer columns nicely */
+            .footer-grid {
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">Vision Care</a>
+            <div class="nav-links">
+                <!-- Removed headers Science/Reviews/FAQ as requested -->
+                <a href="#contact" class="btn-primary" style="padding: 8px 20px; font-size: 0.9rem;" data-i18n="nav-contact-btn">Contact Us</a>
+                <button id="lang-toggle" class="btn-outline">中文</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container hero-content">
+            <span class="trust-badge" data-i18n="hero-trust">42 YEARS OF RESEARCH • 9 YEARS IN MALAYSIA</span>
+            <h1 data-i18n="hero-title">Stop Your Child’s Vision From Getting Worse.</h1>
+            <p class="hero-subtitle" data-i18n="hero-subtitle">No surgery. No glasses. Just 5 minutes each time.</p>
+            
+            <div class="hero-media">
+                <img src="https://placehold.co/800x450/e0f2fe/0f4c81?text=Little+Girl+Using+IZON+Device" alt="Girl using IZON device">
+            </div>
+        </div>
+    </header>
+
+    <!-- Certification Bar -->
+    <div class="cert-bar">
+        <div class="container">
+            <p class="cert-header">CERTIFIED EXCELLENCE & FEATURED IN</p>
+            <div class="cert-logos">
+                <div class="cert-item">FDA</div>
+                <div class="cert-item">CE</div>
+                <div class="cert-item">ISO</div>
+                <div class="cert-item">MDA</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MDA Section -->
+    <section class="mda-section">
+        <div class="container mda-content">
+            <h3 data-i18n="mda-title">MDA Malaysia Certified</h3>
+            <p data-i18n="mda-desc">The first eye therapy device certified by the FDA and MDA Malaysia.</p>
+            <img src="https://placehold.co/150x200/f1f5f9/64748b?text=MDA\nCertificate" alt="MDA Certificate" style="border: 1px solid #ddd; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        </div>
+    </section>
+
+    <!-- The Problem Section -->
+    <section class="section problem-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="problem-main-title">Why Glasses Are Not A Cure</h2>
+                <p data-i18n="problem-main-subtitle">Understanding why traditional methods often fall short in treating myopia.</p>
+            </div>
+            <div class="problem-grid">
+                <!-- Problem 1 -->
+                <div class="problem-card">
+                    <h3 data-i18n="problem-1-title">1. The Root Cause</h3>
+                    <p data-i18n="problem-1-desc">Myopia is often caused by Ciliary Muscle Lock due to excessive screen time and near-work</p>
+                </div>
+                <!-- Problem 2 -->
+                <div class="problem-card">
+                    <h3 data-i18n="problem-2-title">2. The Problem with Glasses</h3>
+                    <p data-i18n="problem-2-desc">Glasses do the focusing FOR the eye. The muscle stops working, gets weaker, and the prescription increases.</p>
+                </div>
+                <!-- Problem 3 (Solution) -->
+                <div class="problem-card highlight">
+                    <h3 data-i18n="problem-3-title">3. The Oxylife Solution</h3>
+                    <p data-i18n="problem-3-desc">We use non-invasive training to relax and strengthen these muscles, restoring natural focal ability</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product / Science Section -->
+    <section id="science" class="section product-section">
+        <div class="container product-layout">
+            <div class="product-image">
+                <img src="https://placehold.co/600x550/0f4c81/ffffff?text=IZON+Device\n(Side+View)" alt="Vision Training Device">
+            </div>
+            
+            <div class="product-text">
+                <span class="tag">OUR TECHNOLOGY</span>
+                <h2 data-i18n="tech-title">Medical-Grade Precision Training</h2>
+                <p class="desc-lead" data-i18n="tech-subtitle">It's not just "eye exercises." Our proprietary device uses a 5-step mechanical process to force the eye to relax and refocus.</p>
+                
+                <div class="tech-list">
+                    <!-- Item 1 -->
+                    <div class="tech-item">
+                        <div class="tech-icon">1</div>
+                        <div class="tech-content">
+                            <h4 data-i18n="tech-1-title">Dynamic Focus</h4>
+                            <p data-i18n="tech-1-desc">Simulates distance vision changes to train focus flexibility.</p>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="tech-item">
+                        <div class="tech-icon">2</div>
+                        <div class="tech-content">
+                            <h4 data-i18n="tech-2-title">Retina Stimulation</h4>
+                            <p data-i18n="tech-2-desc">Light pulses activate dormant retinal cells to improve clarity.</p>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="tech-item">
+                        <div class="tech-icon">3</div>
+                        <div class="tech-content">
+                            <h4 data-i18n="tech-3-title">Pupil Accommodation</h4>
+                            <p data-i18n="tech-3-desc">Trains the iris to adjust to light and distance rapidly.</p>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="tech-item">
+                        <div class="tech-icon">4</div>
+                        <div class="tech-content">
+                            <h4 data-i18n="tech-4-title">Extraocular Muscles</h4>
+                            <p data-i18n="tech-4-desc">Strengthens the 6 muscles that control eye movement stability.</p>
+                        </div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="tech-item">
+                        <div class="tech-icon">5</div>
+                        <div class="tech-content">
+                            <h4 data-i18n="tech-5-title">Ciliary Muscles</h4>
+                            <p data-i18n="tech-5-desc">Directly targets the focusing muscle to reverse locking tension.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table Section -->
+    <section class="section table-section">
+        <div class="container">
+            <div class="table-header">
+                <h2 data-i18n="table-feature">Compare Solutions</h2>
+            </div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="row-header"></th>
+                            <th class="col-oxylife">
+                                <span class="rec-badge" data-i18n="table-badge">RECOMMENDED</span>
+                                OXYLIFE
+                            </th>
+                            <th data-i18n="table-ortho">Ortho-K (Night Lens)</th>
+                            <th data-i18n="table-drops">Eye Drops (Atropine)</th>
+                            <th data-i18n="table-glasses">Standard Glasses (Hardware)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- ROW 1 -->
+                        <tr>
+                            <td class="row-header" data-i18n="row-1-label">Control Eye Power?</td>
+                            <td class="col-oxylife">
+                                <span class="icon-circle icon-pos">✓</span>
+                                <span class="status-main" data-i18n="row-1-oxylife-main">YES</span>
+                            </td>
+                            <td>
+                                <span class="icon-circle icon-pos">✓</span>
+                                <span class="status-main" data-i18n="row-1-ortho-main">YES</span>
+                                <span class="status-sub" data-i18n="row-1-ortho-sub">(Temporary)</span>
+                            </td>
+                            <td>
+                                <span class="icon-circle icon-pos">✓</span>
+                                <span class="status-main" data-i18n="row-1-drops-main">YES</span>
+                                <span class="status-sub" data-i18n="row-1-drops-sub">(Chemical)</span>
+                            </td>
+                            <td>
+                                <span class="icon-circle icon-neg">✕</span>
+                                <span class="status-main" data-i18n="row-1-glasses-main">NO</span>
+                                <span class="status-sub" data-i18n="row-1-glasses-sub">(No Control)</span>
+                            </td>
+                        </tr>
+                        <!-- ROW 2 -->
+                        <tr>
+                            <td class="row-header" data-i18n="row-2-label">Safety Profile</td>
+                            <td class="col-oxylife">
+                                <span class="icon-circle icon-pos">✓</span>
+                                <span class="status-main" data-i18n="row-2-oxylife-main">NON-INVASIVE</span>
+                                <span class="status-sub" data-i18n="row-2-oxylife-sub">(Physical Therapy)</span>
+                            </td>
+                            <td>
+                                <span class="icon-circle icon-neg">✕</span>
+                                <span class="status-main" data-i18n="row-2-ortho-main">INFECTION RISK</span>
+                                <span class="status-sub" data-i18n="row-2-ortho-sub">(Strict Hygiene Required)</span>
+                            </td>
+                            <td>
+                                <span class="icon-circle icon-neg">✕</span>
+                                <span class="status-main" data-i18n="row-2-drops-main">SIDE EFFECTS</span>
+                                <span class="status-sub" data-i18n="row-2-drops-sub">(Light Sensitivity / Blur)</span>
+                            </td>
+                            <td>
+                                <span class="icon-circle icon-neu">-</span>
+                                <span class="status-main" data-i18n="row-2-glasses-main">SAFE</span>
+                                <span class="status-sub" data-i18n="row-2-glasses-sub">(No Physical Risk)</span>
+                            </td>
+                        </tr>
+                        <!-- ROW 3 -->
+                        <tr>
+                            <td class="row-header" data-i18n="row-3-label">Child's Comfort</td>
+                            <td class="col-oxylife">
+                                <span class="icon-circle icon-pos">✓</span>
+                                <span class="status-main" data-i18n="row-3-oxylife-main">RELAXING</span>
+                                <span class="status-sub" data-i18n="row-3-oxylife-sub">(5-min Exercise)</span>
+                            </td>
+                            <td>
+                                <span class="icon-circle icon-neg">✕</span>
+                                <span class="status-main" data-i18n="row-3-ortho-main">DISCOMFORT</span>
+                                <span class="status-sub" data-i18n="row-3-ortho-sub">(Hard Lens in Eye)</span>
+                            </td>
+                            <td>
+                                <span class="icon-circle icon-neg">✕</span>
+                                <span class="status-main" data-i18n="row-3-drops-main">STINGING</span>
+                                <span class="status-sub" data-i18n="row-3-drops-sub">(Daily Chemicals)</span>
+                            </td>
+                            <td>
+                                <span class="icon-circle icon-neg">✕</span>
+                                <span class="status-main" data-i18n="row-3-glasses-main">DEPENDENCY</span>
+                                <span class="status-sub" data-i18n="row-3-glasses-sub">(Heavy / Inconvenient)</span>
+                            </td>
+                        </tr>
+                        <!-- ROW 4 -->
+                        <tr>
+                            <td class="row-header" data-i18n="row-4-label">Long-Term Cost</td>
+                            <td class="col-oxylife">
+                                <span class="icon-circle icon-pos">✓</span>
+                                <span class="status-main" data-i18n="row-4-oxylife-main">FIXED FEE</span>
+                                <span class="status-sub" data-i18n="row-4-oxylife-sub">(One-time Investment)</span>
+                            </td>
+                            <td>
+                                <span class="icon-circle icon-neg">✕</span>
+                                <span class="status-main" data-i18n="row-4-ortho-main">RECURRING</span>
+                                <span class="status-sub" data-i18n="row-4-ortho-sub">(Pay Every Year)</span>
+                            </td>
+                            <td>
+                                <span class="icon-circle icon-neg">✕</span>
+                                <span class="status-main" data-i18n="row-4-drops-main">RECURRING</span>
+                                <span class="status-sub" data-i18n="row-4-drops-sub">(Pay Every Month)</span>
+                            </td>
+                            <td>
+                                <span class="icon-circle icon-neg">✕</span>
+                                <span class="status-main" data-i18n="row-4-glasses-main">RECURRING</span>
+                                <span class="status-sub" data-i18n="row-4-glasses-sub">(Pay Lifetime)</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="reviews" class="section testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Real Results Backed By Data</h2>
+            </div>
+            <div class="testimonials-grid">
+                
+                <!-- CARD 1: Suenn -->
+                <div class="testimonial-card">
+                    <div class="testi-data-box">
+                        <div class="testi-stat-group">
+                            <span class="testi-number" data-i18n="testi-1-stat-1">-125deg</span>
+                            <span class="testi-label" data-i18n="testi-1-label-1">MYOPIA IMPROVED</span>
+                        </div>
+                        <div class="testi-stat-group">
+                            <span class="testi-number" data-i18n="testi-1-stat-2">-75deg</span>
+                            <span class="testi-label" data-i18n="testi-1-label-2">ASTIGMATISM IMPROVED</span>
+                        </div>
+                    </div>
+                    <div class="testi-duration" data-i18n="testi-1-duration">3 Months</div>
+                    <p class="testi-quote" data-i18n="testi-1-quote">"We bought it for Suenn's astigmatism, but her myopia dropped significantly too. The optician said glasses were the only way before, but now every checkup is a surprise."</p>
+                    <div class="testi-footer">
+                        <div class="testi-user">
+                            <div class="testi-avatar">SE</div>
+                            <div class="testi-info">
+                                <span class="testi-name">Suenn</span>
+                                <span class="testi-role" data-i18n="testi-1-role">13 Years Old (Student)</span>
+                            </div>
+                        </div>
+                        <div class="testi-verified">✓ VERIFIED</div>
+                    </div>
+                </div>
+
+                <!-- CARD 2: Ms. Tan -->
+                <div class="testimonial-card">
+                    <div class="testi-data-box">
+                        <div class="testi-stat-group">
+                            <span class="testi-number" data-i18n="testi-2-stat-1">-100deg</span>
+                            <span class="testi-label" data-i18n="testi-2-label-1">MYOPIA IMPROVED</span>
+                        </div>
+                        <div class="testi-stat-group">
+                            <span class="testi-number" data-i18n="testi-2-stat-2">+75deg</span>
+                            <span class="testi-label" data-i18n="testi-2-label-2">PRESBYOPIA</span>
+                        </div>
+                    </div>
+                    <div class="testi-duration" data-i18n="testi-2-duration">Family Use • 2 Months</div>
+                    <p class="testi-quote" data-i18n="testi-2-quote">"Everyone says adult vision is hard to change. I trained with my child for 2 months. Now distance vision is clear, and phone reading is effortless. One device benefits the whole family!"</p>
+                    <div class="testi-footer">
+                        <div class="testi-user">
+                            <div class="testi-avatar">MT</div>
+                            <div class="testi-info">
+                                <span class="testi-name">Ms. Tan</span>
+                                <span class="testi-role" data-i18n="testi-2-role">44 Years Old (Mother/Office Worker)</span>
+                            </div>
+                        </div>
+                        <div class="testi-verified">✓ VERIFIED</div>
+                    </div>
+                </div>
+
+                <!-- CARD 3: Ms. Joon -->
+                <div class="testimonial-card">
+                    <div class="testi-data-box center">
+                        <div class="testi-stat-group">
+                            <span class="testi-number" data-i18n="testi-3-stat-1">-100deg</span>
+                            <span class="testi-label" data-i18n="testi-3-label-1">MYOPIA IMPROVED</span>
+                        </div>
+                    </div>
+                    <div class="testi-duration" data-i18n="testi-3-duration">2 Months</div>
+                    <p class="testi-quote" data-i18n="testi-3-quote">"At 50, I thought my vision was set. But after 2 months, it improved by 100 degrees. The training is quick and painless. The optometrist was surprised at the results."</p>
+                    <div class="testi-footer">
+                        <div class="testi-user">
+                            <div class="testi-avatar">MJ</div>
+                            <div class="testi-info">
+                                <span class="testi-name">Ms. Joon</span>
+                                <span class="testi-role" data-i18n="testi-3-role">52 Years Old (Retired)</span>
+                            </div>
+                        </div>
+                        <div class="testi-verified">✓ VERIFIED</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Trial Section (INVERTED) -->
+    <section id="eligibility" class="section cta-section">
+        <div class="container cta-layout">
+            <!-- Visual is now FIRST (Left) -->
+            <div class="cta-visual">
+                <img src="https://placehold.co/500x600/ffffff/0f4c81?text=Eye+Chart\n(Before+vs+After)" alt="Vision Chart">
+                <p class="caption" style="margin-top:10px; opacity:0.8; font-size:0.9rem; color: white;" data-i18n="cta-chart-caption">Vision Test Chart...</p>
+            </div>
+            
+            <!-- Content is now SECOND (Right) -->
+            <div class="cta-content">
+                <h2 data-i18n="cta-title">Give Us 15 Minutes. Witness Vision Improvement.</h2>
+                <h4 data-i18n="cta-subtitle">A risk-free trial to prove it works before you commit.</h4>
+                <p data-i18n="cta-body">Many parents are skeptical at first...</p>
+                <!-- Added "btn-green" class for WhatsApp color -->
+                <a href="https://wa.link/0lkjv8" class="btn-primary btn-green" target="_blank" data-i18n="cta-btn">Free Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (UPDATED) -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <!-- Column 1: Brand & Links -->
+                <div class="footer-col">
+                    <h3>Vision Care</h3>
+                    <p style="opacity: 0.7; font-size: 0.9rem;">Oxylife Selangor</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                    <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.5;">© 2025 Oxylife. All rights reserved.</p>
+                </div>
+
+                <!-- Column 2: Location (VISIT US) -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer-loc-title">VISIT US</h4>
+                    <p class="footer-address">
+                        <strong>Oxylife Selangor</strong><br>
+                        A-13-10, Pinnacle Petaling Jaya,<br>
+                        Lrg. Utara, Pjs 52.<br>
+                        46200 Petaling Jaya, Selangor
+                    </p>
+                    <p class="footer-contact">
+                        <span style="opacity:0.7;" data-i18n="footer-contact-label">Contact:</span> <br>
+                        <a href="tel:+601155594933" style="color:white; text-decoration:none; font-weight:600;">+6011-5559 4933 (Tay)</a>
+                    </p>
+                </div>
+
+                <!-- Column 3: Certifications (MEDICAL LICENSES) -->
+                <div class="footer-col">
+                    <h4 data-i18n="footer-cert-title">MEDICAL LICENSES</h4>
+                    <div class="cert-row">
+                        <span class="cert-label" data-i18n="footer-mda-label">MDA REG</span>
+                        <span class="cert-value">GA1448221–77276</span>
+                    </div>
+                    <div class="cert-row">
+                        <span class="cert-label" data-i18n="footer-fda-label">US FDA</span>
+                        <span class="cert-value" data-i18n="footer-fda-value">Class 1 Approved</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- STICKY WHATSAPP BUTTON -->
+    <a href="https://wa.link/0lkjv8" class="whatsapp-float" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+    </a>
+
+    <!-- Main JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Vision Care Website Loaded');
+
+            // Smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // Animations
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.add('fade-in');
+                observer.observe(section);
+            });
+
+            // Localization
+            const translations = {
+                en: {
+                    "nav-contact-btn": "Contact Us",
+                    "hero-trust": "42 YEARS OF RESEARCH • 9 YEARS IN MALAYSIA",
+                    "hero-title": "Stop Your Child’s Vision From Getting Worse.",
+                    "hero-subtitle": "No surgery. No glasses. Just 5 minutes each time.",
+                    "hero-cta": "Start Vision Training",
+                    "mda-title": "MDA Malaysia Certified",
+                    "mda-desc": "The first eye therapy device certified by the FDA and MDA Malaysia.",
+                    "problem-main-title": "Why Glasses Are Not A Cure",
+                    "problem-main-subtitle": "Understanding why traditional methods often fall short in treating myopia.",
+                    "problem-1-title": "1. The Root Cause",
+                    "problem-1-desc": "Myopia is often caused by Ciliary Muscle Lock due to excessive screen time and near-work",
+                    "problem-2-title": "2. The Problem with Glasses",
+                    "problem-2-desc": "Glasses do the focusing FOR the eye. The muscle stops working, gets weaker, and the prescription increases.",
+                    "problem-3-title": "3. The Oxylife Solution",
+                    "problem-3-desc": "We use non-invasive training to relax and strengthen these muscles, restoring natural focal ability",
+                    
+                    "tech-title": "Medical-Grade Precision Training",
+                    "tech-subtitle": "It's not just \"eye exercises.\" Our proprietary device uses a 5-step mechanical process to force the eye to relax and refocus.",
+                    "tech-1-title": "Dynamic Focus",
+                    "tech-1-desc": "Simulates distance vision changes to train focus flexibility.",
+                    "tech-2-title": "Retina Stimulation",
+                    "tech-2-desc": "Light pulses activate dormant retinal cells to improve clarity.",
+                    "tech-3-title": "Pupil Accommodation",
+                    "tech-3-desc": "Trains the iris to adjust to light and distance rapidly.",
+                    "tech-4-title": "Extraocular Muscles",
+                    "tech-4-desc": "Strengthens the 6 muscles that control eye movement stability.",
+                    "tech-5-title": "Ciliary Muscles",
+                    "tech-5-desc": "Directly targets the focusing muscle to reverse locking tension.",
+
+                    "table-badge": "RECOMMENDED",
+                    "table-feature": "Compare Solutions",
+                    "table-ortho": "Ortho-K (Night Lens)",
+                    "table-drops": "Eye Drops (Atropine)",
+                    "table-glasses": "Standard Glasses (Hardware)",
+
+                    "row-1-label": "Control Eye Power?",
+                    "row-1-oxylife-main": "YES",
+                    "row-1-ortho-main": "YES",
+                    "row-1-ortho-sub": "(Temporary)",
+                    "row-1-drops-main": "YES",
+                    "row-1-drops-sub": "(Chemical)",
+                    "row-1-glasses-main": "NO",
+                    "row-1-glasses-sub": "(No Control)",
+
+                    "row-2-label": "Safety Profile",
+                    "row-2-oxylife-main": "NON-INVASIVE",
+                    "row-2-oxylife-sub": "(Physical Therapy)",
+                    "row-2-ortho-main": "INFECTION RISK",
+                    "row-2-ortho-sub": "(Strict Hygiene Required)",
+                    "row-2-drops-main": "SIDE EFFECTS",
+                    "row-2-drops-sub": "(Light Sensitivity / Blur)",
+                    "row-2-glasses-main": "SAFE",
+                    "row-2-glasses-sub": "(No Physical Risk)",
+
+                    "row-3-label": "Child's Comfort",
+                    "row-3-oxylife-main": "RELAXING",
+                    "row-3-oxylife-sub": "(5-min Exercise)",
+                    "row-3-ortho-main": "DISCOMFORT",
+                    "row-3-ortho-sub": "(Hard Lens in Eye)",
+                    "row-3-drops-main": "STINGING",
+                    "row-3-drops-sub": "(Daily Chemicals)",
+                    "row-3-glasses-main": "DEPENDENCY",
+                    "row-3-glasses-sub": "(Heavy / Inconvenient)",
+
+                    "row-4-label": "Long-Term Cost",
+                    "row-4-oxylife-main": "FIXED FEE",
+                    "row-4-oxylife-sub": "(One-time Investment)",
+                    "row-4-ortho-main": "RECURRING",
+                    "row-4-ortho-sub": "(Pay Every Year)",
+                    "row-4-drops-main": "RECURRING",
+                    "row-4-drops-sub": "(Pay Every Month)",
+                    "row-4-glasses-main": "RECURRING",
+                    "row-4-glasses-sub": "(Pay Lifetime)",
+
+                    "testi-1-stat-1": "-125deg",
+                    "testi-1-label-1": "MYOPIA IMPROVED",
+                    "testi-1-stat-2": "-75deg",
+                    "testi-1-label-2": "ASTIGMATISM IMPROVED",
+                    "testi-1-duration": "3 Months",
+                    "testi-1-quote": "\"We bought it for Suenn's astigmatism, but her myopia dropped significantly too. The optician said glasses were the only way before, but now every checkup is a surprise.\"",
+                    "testi-1-role": "13 Years Old (Student)",
+
+                    "testi-2-stat-1": "-100deg",
+                    "testi-2-label-1": "MYOPIA IMPROVED",
+                    "testi-2-stat-2": "+75deg",
+                    "testi-2-label-2": "PRESBYOPIA",
+                    "testi-2-duration": "Family Use • 2 Months",
+                    "testi-2-quote": "\"Everyone says adult vision is hard to change. I trained with my child for 2 months. Now distance vision is clear, and phone reading is effortless. One device benefits the whole family!\"",
+                    "testi-2-role": "44 Years Old (Mother/Office Worker)",
+
+                    "testi-3-stat-1": "-100deg",
+                    "testi-3-label-1": "MYOPIA IMPROVED",
+                    "testi-3-duration": "2 Months",
+                    "testi-3-quote": "\"At 50, I thought my vision was set. But after 2 months, it improved by 100 degrees. The training is quick and painless. The optometrist was surprised at the results.\"",
+                    "testi-3-role": "52 Years Old (Retired)",
+
+                    "cta-title": "Give Us 15 Minutes. Witness Vision Improvement.",
+                    "cta-subtitle": "A risk-free trial to prove it works before you commit.",
+                    "cta-body": "Many parents are skeptical at first. But after just 15 minutes, most children can read 1-2 lines smaller.",
+                    "cta-btn": "Free Consultation",
+                    "cta-chart-caption": "Vision Test Chart - Before and After Comparison",
+
+                    /* Footer Localization */
+                    "footer-loc-title": "VISIT US",
+                    "footer-contact-label": "Contact:",
+                    "footer-cert-title": "MEDICAL LICENSES",
+                    "footer-mda-label": "MDA REG",
+                    "footer-fda-label": "US FDA",
+                    "footer-fda-value": "Class 1 Approved"
+                },
+                cn: {
+                    "nav-contact-btn": "联系我们",
+                    "hero-trust": "42年韩国研发 • 马来西亚9年口碑",
+                    "hero-title": "别让孩子的近视越来越深",
+                    "hero-subtitle": "无需手术。无需眼镜。每次只需5分钟。",
+                    "hero-cta": "开始视力训练",
+                    "mda-title": "获得马来西亚 MDA 认证",
+                    "mda-desc": "首款获得 FDA 及 马来西亚 MDA 双重认证的视力治疗仪。",
+                    "problem-main-title": "为什么眼镜治不好近视",
+                    "problem-main-subtitle": "了解传统方法为什么无法根治近视。",
+                    "problem-1-title": "1. 根本原因",
+                    "problem-1-desc": "看手机，看书太久，眼睛里的调节肌肉僵硬了，就像腿抽筋一样。",
+                    "problem-2-title": "2. 眼镜的陷阱",
+                    "problem-2-desc": "眼镜只是帮眼睛看，结果肌肉更懒、更无力，度数自然一年比一年深。",
+                    "problem-3-title": "3. 我们的解法",
+                    "problem-3-desc": "不靠手术，而是用物理训练帮这些肌肉做运动。恢复它原本的调节力。",
+                    
+                    "tech-title": "医疗级精准训练",
+                    "tech-subtitle": "不仅仅是“眼保健操”。我们的设备使用5步机械过程强制眼睛放松并重新聚焦。",
+                    "tech-1-title": "动态聚焦",
+                    "tech-1-desc": "模拟远距离视觉变化，训练聚焦灵活性。",
+                    "tech-2-title": "视网膜刺激",
+                    "tech-2-desc": "光脉冲激活休眠的视网膜细胞以提高清晰度。",
+                    "tech-3-title": "瞳孔调节",
+                    "tech-3-desc": "训练虹膜快速适应光线和距离。",
+                    "tech-4-title": "眼外肌",
+                    "tech-4-desc": "加强控制眼球运动稳定性的6块肌肉。",
+                    "tech-5-title": "睫状肌",
+                    "tech-5-desc": "直接针对聚焦肌肉，逆转锁定张力。",
+
+                    "table-badge": "妈妈们最关心的",
+                    "table-feature": "功能对比",
+                    "table-ortho": "OK镜 (硬性隐形眼镜)",
+                    "table-drops": "眼药水 (阿托品)",
+                    "table-glasses": "普通眼镜 (只是工具)",
+
+                    "row-1-label": "真能控制度数?",
+                    "row-1-oxylife-main": "可以",
+                    "row-1-ortho-main": "可以",
+                    "row-1-ortho-sub": "(暂时压制)",
+                    "row-1-drops-main": "可以",
+                    "row-1-drops-sub": "(靠药物)",
+                    "row-1-glasses-main": "不能",
+                    "row-1-glasses-sub": "(完全失控)",
+
+                    "row-2-label": "安全吗?",
+                    "row-2-oxylife-main": "非侵入性",
+                    "row-2-oxylife-sub": "(纯物理训练, 最安全)",
+                    "row-2-ortho-main": "有感染风险",
+                    "row-2-ortho-sub": "(每天都要接触眼球)",
+                    "row-2-drops-main": "有副作用",
+                    "row-2-drops-sub": "(孩子会怕光、看不清)",
+                    "row-2-glasses-main": "安全",
+                    "row-2-glasses-sub": "(但无法治疗)",
+
+                    "row-3-label": "孩子肯配合吗?",
+                    "row-3-oxylife-main": "轻松",
+                    "row-3-oxylife-sub": "(每天5分钟, 边玩边做)",
+                    "row-3-ortho-main": "很难受",
+                    "row-3-ortho-sub": "(眼睛里有异物感)",
+                    "row-3-drops-main": "刺痛",
+                    "row-3-drops-sub": "(每天点药水会抗拒)",
+                    "row-3-glasses-main": "会有依赖",
+                    "row-3-glasses-sub": "(生活很不方便)",
+
+                    "row-4-label": "长期算下来贵吗?",
+                    "row-4-oxylife-main": "一次性费用",
+                    "row-4-oxylife-sub": "(全家能用, 最划算)",
+                    "row-4-ortho-main": "持续费用",
+                    "row-4-ortho-sub": "(每年)",
+                    "row-4-drops-main": "持续费用",
+                    "row-4-drops-sub": "(每个月)",
+                    "row-4-glasses-main": "持续费用",
+                    "row-4-glasses-sub": "(一辈子)",
+
+                    "testi-1-stat-1": "-125度",
+                    "testi-1-label-1": "近视改善",
+                    "testi-1-stat-2": "-75度",
+                    "testi-1-label-2": "散光改善",
+                    "testi-1-duration": "3个月",
+                    "testi-1-quote": "\"当初是为了女儿的散光买的，没想到近视降了这么多。之前验光师说只能戴眼镜，现在每次去验光，验光师都觉得不可思议。\"",
+                    "testi-1-role": "13岁 (学生)",
+
+                    "testi-2-stat-1": "-100度",
+                    "testi-2-label-1": "近视改善",
+                    "testi-2-stat-2": "+75度",
+                    "testi-2-label-2": "老花改善",
+                    "testi-2-duration": "全家适用 • 2个月",
+                    "testi-2-quote": "\"都说成年人视力没救了。我跟着孩子一起练，才2个月，看手机真的不用拿那么远了。一台机器全家受惠，这笔钱花得太值了。\"",
+                    "testi-2-role": "44岁 (妈妈/职员)",
+
+                    "testi-3-stat-1": "-100度",
+                    "testi-3-label-1": "近视改善",
+                    "testi-3-duration": "2个月",
+                    "testi-3-quote": "\"到了50岁以为就这样了，没想到还能逆转，坚持几分钟也不累，去验眼时视光师都吓了一跳。物理训练真的很神奇。\"",
+                    "testi-3-role": "52岁 (退休)",
+
+                    "cta-title": "给我 15 分钟，让你亲眼看到改变",
+                    "cta-subtitle": "别光听我们说。带孩子来试试，哪怕只有一行进步，也是希望。",
+                    "cta-body": "很多家长一开始也半信半疑。但试了短短 15 分钟 后，绝大多数孩子都能在视力表上多看清一到两行。",
+                    "cta-btn": "免费咨询 (检测孩子是否适用)",
+                    "cta-chart-caption": "说得天花乱坠，不如亲眼看一次效果。",
+
+                    /* Footer Localization */
+                    "footer-loc-title": "亲临体验",
+                    "footer-contact-label": "联系电话:",
+                    "footer-cert-title": "医疗资质",
+                    "footer-mda-label": "MDA 注册号",
+                    "footer-fda-label": "美国 FDA",
+                    "footer-fda-value": "获一级认证"
+                }
+            };
+
+            let currentLang = 'en';
+            const langToggle = document.getElementById('lang-toggle');
+
+            function updateContent() {
+                const langData = translations[currentLang];
+                if (!langData) return;
+                document.querySelectorAll('[data-i18n]').forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    if (langData[key]) element.textContent = langData[key];
+                });
+                if (langToggle) langToggle.textContent = currentLang === 'en' ? '中文' : 'English';
+            }
+
+            if (langToggle) {
+                langToggle.addEventListener('click', () => {
+                    currentLang = currentLang === 'en' ? 'cn' : 'en';
+                    updateContent();
+                });
+            }
+            updateContent();
+        });
+    </script>
+</body>
+</html>
 
