@@ -548,26 +548,30 @@
                 padding-right: 20px;
             }
             
+            /* First column sticky - Only row headers stay fixed */
             th.row-header, td.row-header {
                 position: sticky;
                 left: 0;
                 width: 110px;
                 min-width: 110px;
                 font-size: 0.9rem;
+                z-index: 30;
+                box-shadow: 2px 0 5px rgba(0,0,0,0.05); /* Adds separation */
             }
 
+            /* Oxylife Column - Unstuck, scrolls normally */
             .col-oxylife {
-                position: sticky !important;
-                left: 110px; 
-                z-index: 15; 
+                position: relative !important; 
+                left: auto !important;
+                z-index: 10; 
                 min-width: 160px;
-                box-shadow: 4px 0 12px rgba(0,0,0,0.1) !important;
+                /* Keep the highlight shadow but remove sticky behaviors */
+                box-shadow: 0px 8px 24px rgba(0,0,0,0.12) !important;
             }
             
-            th.row-header { z-index: 30; }
-            th.col-oxylife { z-index: 25; }
-            td.row-header { z-index: 30; }
-            td.col-oxylife { z-index: 25; }
+            th.col-oxylife, td.col-oxylife {
+                z-index: 10;
+            }
         }
 
         .rec-badge {
@@ -1691,4 +1695,3 @@
     </script>
 </body>
 </html>
-
