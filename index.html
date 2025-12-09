@@ -3,37 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oxylife Selangor|Eye Physiotherapy</title>
+    <title>Oxylife Selangor | Eye Physiotherapy</title>
     <link rel="icon" type="image/png" href="images/logo.png">
-    <!-- GOOGLE FONTS LOADING -->
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
         /* =========================================
-           1. VARIABLES & RESET (The Design System)
+           1. VARIABLES & RESET
            ========================================= */
         :root {
             /* FONT FAMILIES */
-            --font-primary: 'Merriweather', 'Noto Serif SC', serif; /* Trust / Headings */
-            --font-secondary: 'Inter', 'Noto Sans SC', sans-serif; /* Clarity / Body / UI */
+            --font-primary: 'Merriweather', 'Noto Serif SC', serif;
+            --font-secondary: 'Inter', 'Noto Sans SC', sans-serif;
 
-            /* CLINICAL COLORS */
-            --primary-blue: #0f4c81;       
-            --text-heading: #0F2138;       /* Dark Navy - Headings */
-            --text-body: #334155;          /* Dark Grey - Body (No pure black) */
+            /* COLORS */
+            --primary-blue: #0f4c81;        
+            --text-heading: #0F2138;       
+            --text-body: #334155;          
             --text-light: #64748b;         
-            --text-legal: #94A3B8;         /* Muted Grey - Footer */
+            --text-legal: #94A3B8;         
             --bg-white: #ffffff;
             
-            /* TECH/SAAS COLORS */
             --accent-teal: #06b6d4;        
             --accent-bg: #e0f2fe;          
             --success-green: #10b981;
-            --highlight-bg: #f0fdffa3;     
             
-            /* NEW COMPARISON TABLE COLORS */
+            /* TABLE COLORS */
             --bg-cream: #FFFCF5;
             --brand-orange: #F2994A;
             --status-green: #219653;
@@ -41,51 +39,41 @@
             --status-grey: #BDBDBD;
             --text-sub: #666666;
 
-            /* NEW TESTIMONIAL COLORS (CLINICAL REPORT) */
-            --data-bg: #E0FDF4;          
-            --data-text: #064E3B;        
-            --label-text: #059669;       
-            --badge-bg: #FFF7ED;         
-            --badge-text: #D97706;       
-            --verified-bg: #D1FAE5;      
-            --verified-text: #065F46;    
+            /* TESTIMONIAL COLORS */
+            --data-bg: #E0FDF4;           
+            --data-text: #064E3B;         
+            --label-text: #059669;        
+            --badge-bg: #FFF7ED;          
+            --badge-text: #D97706;        
+            --verified-bg: #D1FAE5;       
+            --verified-text: #065F46;     
 
             /* WHATSAPP GREEN */
             --whatsapp-green: #25D366;
 
-            /* SPACING & SHAPE */
+            /* SPACING */
             --radius-md: 12px;             
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
             --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1); 
             --container-width: 1200px;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: var(--font-secondary); /* Default to Inter for clarity */
+            font-family: var(--font-secondary);
             line-height: 1.6;
             color: var(--text-body);
             background-color: #f8fafc;
         }
 
-        /* TYPOGRAPHY UTILITIES */
         h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-primary); /* Default headings to Merriweather */
+            font-family: var(--font-primary);
             color: var(--text-heading);
             line-height: 1.5;
             font-weight: 700;
         }
 
-        /* Common Utilities */
         .container {
             max-width: var(--container-width);
             margin: 0 auto;
@@ -94,6 +82,7 @@
 
         .text-center { text-align: center; }
 
+        /* BUTTONS */
         .btn-primary {
             display: inline-block;
             font-family: var(--font-secondary);
@@ -116,16 +105,14 @@
             box-shadow: var(--shadow-md);
         }
 
-        /* Special Green Button Class */
         .btn-green {
             background-color: var(--whatsapp-green) !important;
             color: white !important;
         }
         
         .btn-green:hover {
-            background-color: #1DA851 !important; /* Slightly darker green for hover */
+            background-color: #1DA851 !important;
             transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
         }
 
         .btn-outline {
@@ -140,21 +127,17 @@
             transition: all 0.2s ease;
         }
 
-        .btn-outline:hover {
-            background: var(--accent-bg);
-        }
+        .btn-outline:hover { background: var(--accent-bg); }
 
         /* =========================================
-           2. NAVIGATION
+           2. NAVIGATION (NON-STICKY FIXED)
            ========================================= */
         .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-            box-shadow: var(--shadow-sm);
+            position: relative; /* Changed from fixed to relative */
+            background: #ffffff;
             padding: 15px 0;
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
         }
 
         .nav-container {
@@ -164,12 +147,11 @@
         }
 
         .logo {
-            font-family: var(--font-secondary); /* Brand name usually clear sans-serif */
+            font-family: var(--font-secondary);
             font-size: 1.6rem;
             font-weight: 800;
             color: var(--primary-blue);
             text-decoration: none;
-            letter-spacing: -0.5px;
         }
 
         .nav-links {
@@ -187,12 +169,10 @@
             font-size: 0.95rem;
         }
         
-        .nav-links a:hover {
-            color: var(--primary-blue);
-        }
+        .nav-links a:hover { color: var(--primary-blue); }
 
         /* =========================================
-           3. HERO SECTION (FONT MAPPING APPLIED)
+           3. HERO SECTION
            ========================================= */
         .hero-section {
             background: linear-gradient(180deg, #fff 0%, #f0f9ff 100%);
@@ -201,34 +181,33 @@
         }
 
         .trust-badge {
-            font-family: var(--font-secondary); /* INTER - CLEAR */
+            font-family: var(--font-secondary);
             background: var(--accent-bg);
             color: var(--primary-blue);
             padding: 8px 16px;
             border-radius: 20px;
             font-size: 0.9rem;
             font-weight: 700;
-            text-transform: uppercase; /* Uppercase for sharpness */
+            text-transform: uppercase;
             display: inline-block;
             margin-bottom: 25px;
         }
 
         .hero-section h1 {
-            font-family: var(--font-primary); /* MERRIWEATHER - TRUST */
+            font-family: var(--font-primary);
             font-size: 3.2rem;
             line-height: 1.2;
             margin-bottom: 15px;
             color: var(--text-heading);
-            letter-spacing: -1px;
             max-width: 900px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .hero-subtitle {
-            font-family: var(--font-secondary); /* INTER - CLARITY */
+            font-family: var(--font-secondary);
             font-size: 1.2rem;
-            font-weight: 400; /* Regular */
+            font-weight: 400;
             color: var(--text-light);
             margin-bottom: 40px;
             max-width: 700px;
@@ -245,10 +224,7 @@
             border: 4px solid white;
         }
 
-        .hero-media img {
-            width: 100%;
-            display: block;
-        }
+        .hero-media img { width: 100%; display: block; }
 
         /* =========================================
            3.5. CERTIFICATIONS & MDA
@@ -278,14 +254,11 @@
             flex-wrap: wrap;
         }
 
-        .cert-item {
-            font-family: var(--font-secondary);
-            font-weight: 700;
-            color: #94a3b8;
-            font-size: 1.2rem;
-            border: 2px solid #e2e8f0;
-            padding: 10px 20px;
-            border-radius: 8px;
+        /* LOGO STYLES */
+        .cert-image {
+            height: 50px;
+            width: auto;
+            filter: grayscale(100%) brightness(0);
         }
 
         .mda-section {
@@ -309,41 +282,11 @@
             font-weight: 500;
             font-size: 1.05rem;
         }
-.cert-image {
-    height: 50px;
-    width: auto;
-    filter: grayscale(100%) brightness(0);
-}
-/* === HEADER FIX: Make it normal (not sticky) === */
-    nav.navbar, header {
-        position: relative !important;  /* Forces it to sit at the top */
-        top: auto !important;
-        background: #ffffff !important; /* White background */
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
 
-    /* Fix body spacing so nothing hides behind the header */
-    body {
-        padding-top: 0 !important;
-    }
-  /* === MOBILE FIX FOR LOGOS === */
-    @media (max-width: 768px) {
-        .cert-image {
-            height: 40px; 
-            margin: 5px;
-        }
-        
-        .cert-logos {
-            gap: 15px; 
-        }
-    }      
         /* =========================================
            4. PROBLEM CARDS
            ========================================= */
-        .section {
-            padding: 80px 0;
-        }
+        .section { padding: 80px 0; }
 
         .section-header {
             text-align: center;
@@ -383,9 +326,7 @@
             font-size: 1.2rem;
         }
         
-        .problem-card p {
-            font-family: var(--font-secondary);
-        }
+        .problem-card p { font-family: var(--font-secondary); }
 
         .problem-card.highlight {
             background: var(--primary-blue);
@@ -394,12 +335,10 @@
         }
 
         .problem-card.highlight h3, 
-        .problem-card.highlight p {
-            color: white;
-        }
+        .problem-card.highlight p { color: white; }
 
         /* =========================================
-           5. PRODUCT SECTION (Technology)
+           5. PRODUCT SECTION
            ========================================= */
         .product-layout {
             display: flex;
@@ -471,7 +410,7 @@
         }
 
         .tech-content h4 {
-            font-family: var(--font-secondary); /* Clean sans for list headers */
+            font-family: var(--font-secondary);
             font-weight: 700;
             font-size: 1.05rem;
             color: var(--primary-blue);
@@ -486,26 +425,16 @@
         }
 
         /* =========================================
-           6. COMPARISON TABLE (FONT MAPPING APPLIED)
+           6. COMPARISON TABLE
            ========================================= */
         .table-section { background: white; padding-top: 40px; }
-
-        .table-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .table-header h2 {
-            font-family: var(--font-primary);
-        }
+        .table-header { text-align: center; margin-bottom: 40px; }
+        .table-header h2 { font-family: var(--font-primary); }
 
         .table-responsive {
             overflow-x: auto;
-            padding-top: 30px; 
-            padding-bottom: 30px;
+            padding: 30px 15px;
             margin: 0 -15px;
-            padding-left: 15px;
-            padding-right: 15px;
         }
 
         table {
@@ -524,12 +453,10 @@
         }
         
         thead th:not(.row-header),
-        tbody td:not(.row-header) {
-            text-align: center;
-        }
+        tbody td:not(.row-header) { text-align: center; }
 
         th.row-header, td.row-header {
-            font-family: var(--font-secondary); /* INTER BOLD */
+            font-family: var(--font-secondary);
             font-weight: 700;
             color: var(--primary-blue);
             position: sticky;
@@ -543,7 +470,7 @@
         }
 
         thead th {
-            font-family: var(--font-secondary); /* INTER BOLD */
+            font-family: var(--font-secondary);
             background: white;
             color: var(--text-heading);
             font-weight: 700;
@@ -562,44 +489,10 @@
 
         th.col-oxylife {
             border-top: 2px solid var(--brand-orange) !important;
-            position: relative;
         }
         
         tr:last-child td.col-oxylife {
             border-bottom: 2px solid var(--brand-orange) !important;
-        }
-
-        @media (max-width: 768px) {
-            .table-responsive {
-                margin: 0 -20px;
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-            
-            /* First column sticky - Only row headers stay fixed */
-            th.row-header, td.row-header {
-                position: sticky;
-                left: 0;
-                width: 110px;
-                min-width: 110px;
-                font-size: 0.9rem;
-                z-index: 30;
-                box-shadow: 2px 0 5px rgba(0,0,0,0.05); /* Adds separation */
-            }
-
-            /* Oxylife Column - Unstuck, scrolls normally */
-            .col-oxylife {
-                position: relative !important; 
-                left: auto !important;
-                z-index: 10; 
-                min-width: 160px;
-                /* Keep the highlight shadow but remove sticky behaviors */
-                box-shadow: 0px 8px 24px rgba(0,0,0,0.12) !important;
-            }
-            
-            th.col-oxylife, td.col-oxylife {
-                z-index: 10;
-            }
         }
 
         .rec-badge {
@@ -620,7 +513,7 @@
         }
 
         .status-main {
-            font-family: var(--font-secondary); /* INTER EXTRA BOLD */
+            font-family: var(--font-secondary);
             display: block;
             font-weight: 800; 
             color: var(--text-heading);
@@ -654,16 +547,12 @@
         .icon-neg { background-color: var(--status-red); }
         .icon-neu { background-color: var(--status-grey); }
 
-        tbody tr {
-            height: 80px; 
-        }
+        tbody tr { height: 80px; }
 
         /* =========================================
-           7. TESTIMONIALS (FONT MAPPING APPLIED)
+           7. TESTIMONIALS
            ========================================= */
-        .testimonials-section {
-            padding-bottom: 80px;
-        }
+        .testimonials-section { padding-bottom: 80px; }
 
         .testimonials-grid {
             display: grid;
@@ -697,9 +586,7 @@
             position: relative;
         }
 
-        .testi-data-box.center {
-            justify-content: center;
-        }
+        .testi-data-box.center { justify-content: center; }
 
         .testi-stat-group {
             display: flex;
@@ -708,7 +595,7 @@
         }
 
         .testi-number {
-            font-family: var(--font-secondary); /* INTER EXTRA BOLD */
+            font-family: var(--font-secondary);
             color: var(--data-text); 
             font-weight: 800;
             font-size: 1.75rem; 
@@ -716,7 +603,7 @@
         }
 
         .testi-label {
-            font-family: var(--font-secondary); /* INTER UPPERCASE */
+            font-family: var(--font-secondary);
             color: var(--label-text); 
             font-size: 10px;
             text-transform: uppercase;
@@ -741,8 +628,8 @@
         }
 
         .testi-quote {
-            font-family: var(--font-primary); /* MERRIWEATHER (VOICE) */
-            font-style: normal; /* Normal Style as requested */
+            font-family: var(--font-primary);
+            font-style: normal;
             color: #4B5563; 
             line-height: 1.6;
             margin: 10px 0 20px 0;
@@ -786,7 +673,7 @@
         }
 
         .testi-name {
-            font-family: var(--font-secondary); /* INTER BOLD */
+            font-family: var(--font-secondary);
             font-weight: 700;
             color: #000;
             font-size: 0.9rem;
@@ -834,7 +721,7 @@
             font-size: 2.5rem;
             margin-bottom: 10px;
             line-height: 1.2;
-            color: white; /* Explicitly set to white for CTA */
+            color: white;
         }
 
         .cta-content h4 {
@@ -864,13 +751,13 @@
         }
 
         /* =========================================
-           9. FOOTER (UPDATED - 3 COLUMNS)
+           9. FOOTER
            ========================================= */
         .footer {
-            background: var(--text-heading); /* Dark Navy */
+            background: var(--text-heading);
             color: white;
             padding: 60px 0;
-            font-family: var(--font-secondary); /* INTER FOR LEGAL/INFO */
+            font-family: var(--font-secondary);
         }
 
         .footer-grid {
@@ -889,7 +776,7 @@
 
         .footer h4 {
             font-family: var(--font-secondary);
-            color: white; /* Headers in white */
+            color: white;
             font-size: 1rem;
             letter-spacing: 1px;
             font-weight: 700;
@@ -907,12 +794,11 @@
             line-height: 1.6;
             opacity: 0.8;
             margin-bottom: 15px;
-            color: var(--text-legal); /* Muted Grey */
+            color: #E2E8F0;
         }
         
-        /* Overriding text color for footer content to ensure legibility on dark bg */
         .footer-col p, .footer-col span, .footer-col a {
-             color: #E2E8F0; /* Lighter than legal variable for dark background readability */
+             color: #E2E8F0;
         }
 
         .footer-links {
@@ -930,9 +816,7 @@
             transition: color 0.2s;
         }
         
-        .footer-links a:hover {
-            color: var(--accent-teal);
-        }
+        .footer-links a:hover { color: var(--accent-teal); }
 
         .cert-row {
             margin-bottom: 12px;
@@ -979,9 +863,7 @@
             transition: transform 0.3s ease;
         }
 
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
+        .whatsapp-float:hover { transform: scale(1.1); }
 
         /* =========================================
            11. ANIMATIONS
@@ -998,7 +880,7 @@
         }
 
         /* =========================================
-           12. MOBILE
+           12. MOBILE MEDIA QUERIES
            ========================================= */
         @media (max-width: 768px) {
             .hero-section h1 { font-size: 2.2rem; }
@@ -1006,7 +888,6 @@
             .product-layout { flex-direction: column-reverse; } 
             
             .nav-container { flex-direction: column; gap: 15px; }
-            .cert-logos { gap: 20px; }
             .nav-links { gap: 15px; }
             
             .whatsapp-float {
@@ -1017,30 +898,60 @@
                 font-size: 25px;
             }
             
-            /* Stack footer columns nicely */
-            .footer-grid {
-                gap: 30px;
+            .footer-grid { gap: 30px; }
+
+            /* LOGO ADJUSTMENTS FOR MOBILE */
+            .cert-image {
+                height: 30px; /* Smaller for mobile */
+                margin: 5px;
+            }
+            .cert-logos {
+                gap: 15px; 
+            }
+            .mda-content img {
+                width: 90% !important;  
+                max-width: 90% !important; 
+            }
+            
+            /* TABLE SCROLL ADJUSTMENTS */
+            .table-responsive {
+                margin: 0 -20px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            th.row-header, td.row-header {
+                position: sticky;
+                left: 0;
+                width: 110px;
+                min-width: 110px;
+                font-size: 0.9rem;
+                z-index: 30;
+                box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+            }
+            .col-oxylife {
+                position: relative !important; 
+                left: auto !important;
+                z-index: 10; 
+                min-width: 160px;
+                box-shadow: 0px 8px 24px rgba(0,0,0,0.12) !important;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
             <a href="#" class="logo">
-    <img src="images/logo.png" alt="OxyLife Logo" style="height: 80px; width: auto;">
-</a>
+                <img src="images/logo.png" alt="OxyLife Logo" style="height: 80px; width: auto;">
+            </a>
             <div class="nav-links">
-                <!-- Removed headers Science/Reviews/FAQ as requested -->
                 <a href="#contact" class="btn-primary" style="padding: 8px 20px; font-size: 0.9rem;" data-i18n="nav-contact-btn">Contact Us</a>
                 <button id="lang-toggle" class="btn-outline">中文</button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <header class="hero-section">
         <div class="container hero-content">
             <span class="trust-badge" data-i18n="hero-trust">42 YEARS OF RESEARCH • 9 YEARS IN MALAYSIA</span>
@@ -1053,21 +964,19 @@
         </div>
     </header>
 
-    <!-- Certification Bar -->
     <div class="cert-bar">
         <div class="container">
             <p class="cert-header">CERTIFIED EXCELLENCE & FEATURED IN</p>
-   <div class="cert-logos">
-    <img src="images/fda.png" alt="FDA Logo" class="cert-image">
-    <img src="images/iso.png" alt="ISO Logo" class="cert-image">
-    <img src="images/kfda.png" alt="KFDA Logo" class="cert-image">
-    <img src="images/sbs.png" alt="SBS Logo" class="cert-image">
-    <img src="images/jtbc.png" alt="JTBC Logo" class="cert-image">
-</div>
+            <div class="cert-logos">
+                <img src="images/fda.png" alt="FDA Logo" class="cert-image">
+                <img src="images/iso.png" alt="ISO Logo" class="cert-image">
+                <img src="images/kfda.png" alt="KFDA Logo" class="cert-image">
+                <img src="images/sbs.png" alt="SBS Logo" class="cert-image">
+                <img src="images/jtbc.png" alt="JTBC Logo" class="cert-image">
+            </div>
         </div>
     </div>
 
-    <!-- MDA Section -->
     <section class="mda-section">
         <div class="container mda-content">
             <h3 data-i18n="mda-title">MDA Malaysia Certified</h3>
@@ -1076,7 +985,6 @@
         </div>
     </section>
 
-    <!-- The Problem Section -->
     <section class="section problem-section">
         <div class="container">
             <div class="section-header">
@@ -1084,17 +992,14 @@
                 <p data-i18n="problem-main-subtitle">Understanding why traditional methods often fall short in treating myopia.</p>
             </div>
             <div class="problem-grid">
-                <!-- Problem 1 -->
                 <div class="problem-card">
                     <h3 data-i18n="problem-1-title">1. The Root Cause</h3>
                     <p data-i18n="problem-1-desc">Myopia is often caused by Ciliary Muscle Lock due to excessive screen time and near-work</p>
                 </div>
-                <!-- Problem 2 -->
                 <div class="problem-card">
                     <h3 data-i18n="problem-2-title">2. The Problem with Glasses</h3>
                     <p data-i18n="problem-2-desc">Glasses do the focusing FOR the eye. The muscle stops working, gets weaker, and the prescription increases.</p>
                 </div>
-                <!-- Problem 3 (Solution) -->
                 <div class="problem-card highlight">
                     <h3 data-i18n="problem-3-title">3. The Oxylife Solution</h3>
                     <p data-i18n="problem-3-desc">We use non-invasive training to relax and strengthen these muscles, restoring natural focal ability</p>
@@ -1103,7 +1008,6 @@
         </div>
     </section>
 
-    <!-- Product / Science Section -->
     <section id="science" class="section product-section">
         <div class="container product-layout">
             <div class="product-image">
@@ -1116,7 +1020,6 @@
                 <p class="desc-lead" data-i18n="tech-subtitle">It's not just "eye exercises." Our proprietary device uses a 5-step mechanical process to force the eye to relax and refocus.</p>
                 
                 <div class="tech-list">
-                    <!-- Item 1 -->
                     <div class="tech-item">
                         <div class="tech-icon">1</div>
                         <div class="tech-content">
@@ -1124,7 +1027,6 @@
                             <p data-i18n="tech-1-desc">Simulates distance vision changes to train focus flexibility.</p>
                         </div>
                     </div>
-                    <!-- Item 2 -->
                     <div class="tech-item">
                         <div class="tech-icon">2</div>
                         <div class="tech-content">
@@ -1132,7 +1034,6 @@
                             <p data-i18n="tech-2-desc">Light pulses activate dormant retinal cells to improve clarity.</p>
                         </div>
                     </div>
-                    <!-- Item 3 -->
                     <div class="tech-item">
                         <div class="tech-icon">3</div>
                         <div class="tech-content">
@@ -1140,7 +1041,6 @@
                             <p data-i18n="tech-3-desc">Trains the iris to adjust to light and distance rapidly.</p>
                         </div>
                     </div>
-                    <!-- Item 4 -->
                     <div class="tech-item">
                         <div class="tech-icon">4</div>
                         <div class="tech-content">
@@ -1148,7 +1048,6 @@
                             <p data-i18n="tech-4-desc">Strengthens the 6 muscles that control eye movement stability.</p>
                         </div>
                     </div>
-                    <!-- Item 5 -->
                     <div class="tech-item">
                         <div class="tech-icon">5</div>
                         <div class="tech-content">
@@ -1161,7 +1060,6 @@
         </div>
     </section>
 
-    <!-- Comparison Table Section -->
     <section class="section table-section">
         <div class="container">
             <div class="table-header">
@@ -1182,7 +1080,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- ROW 1 -->
                         <tr>
                             <td class="row-header" data-i18n="row-1-label">Control Eye Power?</td>
                             <td class="col-oxylife">
@@ -1205,7 +1102,6 @@
                                 <span class="status-sub" data-i18n="row-1-glasses-sub">(No Control)</span>
                             </td>
                         </tr>
-                        <!-- ROW 2 -->
                         <tr>
                             <td class="row-header" data-i18n="row-2-label">Safety Profile</td>
                             <td class="col-oxylife">
@@ -1229,7 +1125,6 @@
                                 <span class="status-sub" data-i18n="row-2-glasses-sub">(No Physical Risk)</span>
                             </td>
                         </tr>
-                        <!-- ROW 3 -->
                         <tr>
                             <td class="row-header" data-i18n="row-3-label">Child's Comfort</td>
                             <td class="col-oxylife">
@@ -1253,7 +1148,6 @@
                                 <span class="status-sub" data-i18n="row-3-glasses-sub">(Heavy / Inconvenient)</span>
                             </td>
                         </tr>
-                        <!-- ROW 4 -->
                         <tr>
                             <td class="row-header" data-i18n="row-4-label">Long-Term Cost</td>
                             <td class="col-oxylife">
@@ -1283,7 +1177,6 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
     <section id="reviews" class="section testimonials-section">
         <div class="container">
             <div class="section-header">
@@ -1291,7 +1184,6 @@
             </div>
             <div class="testimonials-grid">
                 
-                <!-- CARD 1: Suenn -->
                 <div class="testimonial-card">
                     <div class="testi-data-box">
                         <div class="testi-stat-group">
@@ -1317,7 +1209,6 @@
                     </div>
                 </div>
 
-                <!-- CARD 2: Ms. Tan -->
                 <div class="testimonial-card">
                     <div class="testi-data-box">
                         <div class="testi-stat-group">
@@ -1343,7 +1234,6 @@
                     </div>
                 </div>
 
-                <!-- CARD 3: Ms. Joon -->
                 <div class="testimonial-card">
                     <div class="testi-data-box center">
                         <div class="testi-stat-group">
@@ -1369,32 +1259,26 @@
         </div>
     </section>
 
-    <!-- CTA / Trial Section (INVERTED) -->
     <section id="eligibility" class="section cta-section">
         <div class="container cta-layout">
-            <!-- Visual is now FIRST (Left) -->
             <div class="cta-visual">
-                <img src="images/cta.png" alt="Vision Chart">
+                <img src="images/cta.png" alt="Vision Chart" style="width: 100%; max-width: 500px; height: auto; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
                 <p class="caption" style="margin-top:10px; opacity:0.8; font-size:0.9rem; color: white;" data-i18n="cta-chart-caption">Vision Test Chart...</p>
             </div>
             
-            <!-- Content is now SECOND (Right) -->
             <div class="cta-content">
                 <h2 data-i18n="cta-title">Give Us 15 Minutes. Witness Vision Improvement.</h2>
                 <h4 data-i18n="cta-subtitle">A risk-free trial to prove it works before you commit.</h4>
                 <p data-i18n="cta-body">Many parents are skeptical at first...</p>
-                <!-- Added "btn-green" class for WhatsApp color -->
                 <a href="https://wa.link/0lkjv8" class="btn-primary btn-green" target="_blank" data-i18n="cta-btn">Free Consultation</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer (UPDATED) -->
     <footer id="contact" class="footer">
         <div class="container">
             <div class="footer-grid">
                 
-                <!-- Column 1: Brand & Links -->
                 <div class="footer-col">
              
                     <p style="opacity: 0.7; font-size: 0.9rem;">Oxylife Selangor</p>
@@ -1405,7 +1289,6 @@
                     <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.5;">© 2025 Oxylife. All rights reserved.</p>
                 </div>
 
-                <!-- Column 2: Location (VISIT US) -->
                 <div class="footer-col">
                     <h4 data-i18n="footer-loc-title">VISIT US</h4>
                     <p class="footer-address">
@@ -1420,7 +1303,6 @@
                     </p>
                 </div>
 
-                <!-- Column 3: Certifications (MEDICAL LICENSES) -->
                 <div class="footer-col">
                     <h4 data-i18n="footer-cert-title">MEDICAL LICENSES</h4>
                     <div class="cert-row">
@@ -1437,14 +1319,12 @@
         </div>
     </footer>
 
-    <!-- STICKY WHATSAPP BUTTON -->
     <a href="https://wa.link/0lkjv8" class="whatsapp-float" target="_blank">
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
             <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
         </svg>
     </a>
 
-    <!-- Main JS -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             console.log('OxyLife Selangor Website Loaded');
@@ -1702,7 +1582,8 @@
                 }
             };
 
-            let currentLang = 'en';
+            // CHANGED DEFAULT LANGUAGE TO CHINESE AS REQUESTED
+            let currentLang = 'cn';
             const langToggle = document.getElementById('lang-toggle');
 
             function updateContent() {
@@ -1726,16 +1607,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
