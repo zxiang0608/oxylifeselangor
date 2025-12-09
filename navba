@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -314,7 +314,19 @@
     width: auto;
     filter: grayscale(100%) brightness(0);
 }
+/* === HEADER FIX: Make it normal (not sticky) === */
+    nav.navbar, header {
+        position: relative !important;  /* Forces it to sit at the top */
+        top: auto !important;
+        background: #ffffff !important; /* White background */
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
 
+    /* Fix body spacing so nothing hides behind the header */
+    body {
+        padding-top: 0 !important;
+    }
   /* === MOBILE FIX FOR LOGOS === */
     @media (max-width: 768px) {
         .cert-image {
@@ -1714,6 +1726,7 @@
     </script>
 </body>
 </html>
+
 
 
 
