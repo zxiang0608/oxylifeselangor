@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oxylife Selangor | Eye Physiotherapy</title>
-    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -276,17 +277,10 @@
             flex-wrap: wrap;
         }
 
-        .cert-placeholder {
-            height: 40px;
-            padding: 0 15px;
-            background: #f1f5f9;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #64748b;
-            font-weight: 700;
-            font-size: 0.9rem;
+        .cert-image {
+            height: 50px;
+            width: auto;
+            filter: grayscale(100%) brightness(0);
         }
 
         .mda-section {
@@ -921,10 +915,9 @@
             .footer-grid { gap: 30px; }
 
             /* LOGO ADJUSTMENTS FOR MOBILE */
-            .cert-placeholder {
-                font-size: 0.7rem;
-                padding: 0 8px;
-                height: 30px;
+            .cert-image {
+                height: 30px; /* Smaller for mobile */
+                margin: 5px;
             }
             .cert-logos {
                 gap: 15px; 
@@ -979,7 +972,7 @@
     <nav class="navbar">
         <div class="container nav-container">
             <a href="#" class="logo">
-                <span style="color: var(--primary-blue); font-weight: 800; font-size: 1.5rem;">OXYLIFE</span>
+                <img src="images/logo.png" alt="OxyLife Logo" style="height: 80px; width: auto;">
             </a>
             <div class="nav-links">
                 <a href="#contact" class="btn-primary" style="padding: 8px 20px; font-size: 0.9rem;" data-i18n="nav-contact-btn">Contact Us</a>
@@ -995,7 +988,7 @@
             <p class="hero-subtitle" data-i18n="hero-subtitle">No surgery. No glasses. Just 5 minutes each time.</p>
             
             <div class="hero-media">
-              <div class="placeholder-img">Device Image Placeholder</div>
+              <img src="images/main.png" alt="Girl using IZON device">
             </div>
         </div>
     </header>
@@ -1004,11 +997,11 @@
         <div class="container">
             <p class="cert-header">CERTIFIED EXCELLENCE & FEATURED IN</p>
             <div class="cert-logos">
-                <div class="cert-placeholder">FDA</div>
-                <div class="cert-placeholder">ISO</div>
-                <div class="cert-placeholder">KFDA</div>
-                <div class="cert-placeholder">SBS</div>
-                <div class="cert-placeholder">JTBC</div>
+                <img src="images/fda.png" alt="FDA Logo" class="cert-image">
+                <img src="images/iso.png" alt="ISO Logo" class="cert-image">
+                <img src="images/kfda.png" alt="KFDA Logo" class="cert-image">
+                <img src="images/sbs.png" alt="SBS Logo" class="cert-image">
+                <img src="images/jtbc.png" alt="JTBC Logo" class="cert-image">
             </div>
         </div>
     </div>
@@ -1017,9 +1010,7 @@
         <div class="container mda-content">
             <h3 data-i18n="mda-title">MDA Malaysia Certified</h3>
             <p data-i18n="mda-desc">The first eye therapy device certified by the FDA and MDA Malaysia.</p>
-            <div style="width: 100%; max-width: 500px; height: 300px; background: #f8fafc; margin: 20px auto; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; color: #64748b; font-weight: bold;">
-                MDA Certificate Placeholder
-            </div>
+            <img src="images/mda.png" alt="MDA Certificate" style="display: block; max-width: 500px; height: auto; margin: 20px auto; border: 1px solid #ddd; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
         </div>
     </section>
 
@@ -1049,7 +1040,7 @@
     <section id="science" class="section product-section">
         <div class="container product-layout">
             <div class="product-image">
-                <div class="placeholder-img">Device Closeup Placeholder</div>
+                <img src="images/device.png" alt="Vision Training Device">
             </div>
             
             <div class="product-text">
@@ -1284,7 +1275,7 @@
     <section id="eligibility" class="section cta-section">
         <div class="container cta-layout">
             <div class="cta-visual">
-                <div class="placeholder-img" style="min-height: 250px; background: rgba(255,255,255,0.2); color: white;">Chart Placeholder</div>
+                <img src="images/cta.png" alt="Vision Chart" style="width: 100%; max-width: 500px; height: auto; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
                 <p class="caption" style="margin-top:10px; opacity:0.8; font-size:0.9rem; color: white;" data-i18n="cta-chart-caption">Vision Test Chart...</p>
             </div>
             
