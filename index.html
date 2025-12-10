@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oxylife Selangor | Eye Physiotherapy</title>
-    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
         /* =========================================
@@ -21,14 +24,14 @@
 
             /* COLORS */
             --primary-blue: #0f4c81;        
-            --text-heading: #0F2138;       
-            --text-body: #334155;          
-            --text-light: #64748b;         
-            --text-legal: #94A3B8;         
+            --text-heading: #0F2138;        
+            --text-body: #334155;           
+            --text-light: #64748b;          
+            --text-legal: #94A3B8;          
             --bg-white: #ffffff;
             
-            --accent-teal: #06b6d4;        
-            --accent-bg: #e0f2fe;          
+            --accent-teal: #06b6d4;         
+            --accent-bg: #e0f2fe;           
             --success-green: #10b981;
             
             /* TABLE COLORS */
@@ -40,19 +43,19 @@
             --text-sub: #666666;
 
             /* TESTIMONIAL COLORS */
-            --data-bg: #E0FDF4;           
-            --data-text: #064E3B;         
-            --label-text: #059669;        
-            --badge-bg: #FFF7ED;          
-            --badge-text: #D97706;        
-            --verified-bg: #D1FAE5;       
-            --verified-text: #065F46;     
+            --data-bg: #E0FDF4;            
+            --data-text: #064E3B;          
+            --label-text: #059669;         
+            --badge-bg: #FFF7ED;           
+            --badge-text: #D97706;         
+            --verified-bg: #D1FAE5;        
+            --verified-text: #065F46;      
 
             /* WHATSAPP GREEN */
             --whatsapp-green: #25D366;
 
             /* SPACING */
-            --radius-md: 12px;             
+            --radius-md: 12px;              
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
             --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1); 
             --container-width: 1200px;
@@ -130,10 +133,10 @@
         .btn-outline:hover { background: var(--accent-bg); }
 
         /* =========================================
-           2. NAVIGATION (NON-STICKY FIXED)
+           2. NAVIGATION
            ========================================= */
         .navbar {
-            position: relative; /* Changed from fixed to relative */
+            position: relative;
             background: #ffffff;
             padding: 15px 0;
             box-shadow: var(--shadow-sm);
@@ -152,6 +155,8 @@
             font-weight: 800;
             color: var(--primary-blue);
             text-decoration: none;
+            display: flex;
+            align-items: center;
         }
 
         .nav-links {
@@ -222,9 +227,26 @@
             overflow: hidden;
             box-shadow: var(--shadow-md);
             border: 4px solid white;
+            position: relative;
+            background: #eee;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .hero-media img { width: 100%; display: block; }
+        
+        .placeholder-img {
+            width: 100%;
+            height: 100%;
+            background-color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-weight: bold;
+        }
 
         /* =========================================
            3.5. CERTIFICATIONS & MDA
@@ -254,11 +276,17 @@
             flex-wrap: wrap;
         }
 
-        /* LOGO STYLES */
-        .cert-image {
-            height: 50px;
-            width: auto;
-            filter: grayscale(100%) brightness(0);
+        .cert-placeholder {
+            height: 40px;
+            padding: 0 15px;
+            background: #f1f5f9;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-weight: 700;
+            font-size: 0.9rem;
         }
 
         .mda-section {
@@ -353,6 +381,11 @@
             border-radius: var(--radius-md);
             overflow: hidden;
             box-shadow: var(--shadow-md);
+            background: #eee;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .product-image img { width: 100%; display: block; }
 
@@ -512,6 +545,13 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
+        .table-icon {
+            display: block;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+
         .status-main {
             font-family: var(--font-secondary);
             display: block;
@@ -527,25 +567,6 @@
             color: var(--text-sub);
             font-weight: 400;
         }
-
-        .icon-circle {
-            font-family: var(--font-secondary);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            color: white;
-            font-size: 14px;
-            font-weight: bold;
-            margin-right: 8px;
-            vertical-align: text-bottom;
-        }
-
-        .icon-pos { background-color: var(--status-green); }
-        .icon-neg { background-color: var(--status-red); }
-        .icon-neu { background-color: var(--status-grey); }
 
         tbody tr { height: 80px; }
 
@@ -743,6 +764,14 @@
         .cta-visual {
             flex: 1;
             text-align: center;
+            background: #fff;
+            padding: 10px;
+            border-radius: var(--radius-md);
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
         
         .cta-visual img {
@@ -868,16 +897,7 @@
         /* =========================================
            11. ANIMATIONS
            ========================================= */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        /* Removed .fade-in to prevent invisible content if JS fails */
 
         /* =========================================
            12. MOBILE MEDIA QUERIES
@@ -901,9 +921,10 @@
             .footer-grid { gap: 30px; }
 
             /* LOGO ADJUSTMENTS FOR MOBILE */
-            .cert-image {
-                height: 30px; /* Smaller for mobile */
-                margin: 5px;
+            .cert-placeholder {
+                font-size: 0.7rem;
+                padding: 0 8px;
+                height: 30px;
             }
             .cert-logos {
                 gap: 15px; 
@@ -939,27 +960,26 @@
     </style>
 
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1179069353627076');
-    fbq('track', 'PageView');
+        /* Facebook Pixel Code - Commented out for preview stability
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1179069353627076');
+        fbq('track', 'PageView');
+        */
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1179069353627076&ev=PageView&noscript=1"
-    /></noscript>
-    </head>
+</head>
 <body>
 
     <nav class="navbar">
         <div class="container nav-container">
             <a href="#" class="logo">
-                <img src="images/logo.png" alt="OxyLife Logo" style="height: 80px; width: auto;">
+                <span style="color: var(--primary-blue); font-weight: 800; font-size: 1.5rem;">OXYLIFE</span>
             </a>
             <div class="nav-links">
                 <a href="#contact" class="btn-primary" style="padding: 8px 20px; font-size: 0.9rem;" data-i18n="nav-contact-btn">Contact Us</a>
@@ -975,7 +995,7 @@
             <p class="hero-subtitle" data-i18n="hero-subtitle">No surgery. No glasses. Just 5 minutes each time.</p>
             
             <div class="hero-media">
-              <img src="images/main.png" alt="Girl using IZON device">
+              <div class="placeholder-img">Device Image Placeholder</div>
             </div>
         </div>
     </header>
@@ -984,11 +1004,11 @@
         <div class="container">
             <p class="cert-header">CERTIFIED EXCELLENCE & FEATURED IN</p>
             <div class="cert-logos">
-                <img src="images/fda.png" alt="FDA Logo" class="cert-image">
-                <img src="images/iso.png" alt="ISO Logo" class="cert-image">
-                <img src="images/kfda.png" alt="KFDA Logo" class="cert-image">
-                <img src="images/sbs.png" alt="SBS Logo" class="cert-image">
-                <img src="images/jtbc.png" alt="JTBC Logo" class="cert-image">
+                <div class="cert-placeholder">FDA</div>
+                <div class="cert-placeholder">ISO</div>
+                <div class="cert-placeholder">KFDA</div>
+                <div class="cert-placeholder">SBS</div>
+                <div class="cert-placeholder">JTBC</div>
             </div>
         </div>
     </div>
@@ -997,7 +1017,9 @@
         <div class="container mda-content">
             <h3 data-i18n="mda-title">MDA Malaysia Certified</h3>
             <p data-i18n="mda-desc">The first eye therapy device certified by the FDA and MDA Malaysia.</p>
-            <img src="images/mda.png" alt="MDA Certificate" style="display: block; max-width: 500px; height: auto; margin: 20px auto; border: 1px solid #ddd; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            <div style="width: 100%; max-width: 500px; height: 300px; background: #f8fafc; margin: 20px auto; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; color: #64748b; font-weight: bold;">
+                MDA Certificate Placeholder
+            </div>
         </div>
     </section>
 
@@ -1027,7 +1049,7 @@
     <section id="science" class="section product-section">
         <div class="container product-layout">
             <div class="product-image">
-                <img src="images/device.png" alt="Vision Training Device">
+                <div class="placeholder-img">Device Closeup Placeholder</div>
             </div>
             
             <div class="product-text">
@@ -1099,91 +1121,75 @@
                         <tr>
                             <td class="row-header" data-i18n="row-1-label">Control Eye Power?</td>
                             <td class="col-oxylife">
-                                <span class="icon-circle icon-pos">✓</span>
-                                <span class="status-main" data-i18n="row-1-oxylife-main">YES</span>
+                                <span class="status-main" data-i18n="row-1-oxylife-main"><span class='table-icon'>✅</span> YES</span>
                             </td>
                             <td>
-                                <span class="icon-circle icon-pos">✓</span>
-                                <span class="status-main" data-i18n="row-1-ortho-main">YES</span>
+                                <span class="status-main" data-i18n="row-1-ortho-main"><span class='table-icon'>✅</span> YES</span>
                                 <span class="status-sub" data-i18n="row-1-ortho-sub">(Temporary)</span>
                             </td>
                             <td>
-                                <span class="icon-circle icon-pos">✓</span>
-                                <span class="status-main" data-i18n="row-1-drops-main">YES</span>
+                                <span class="status-main" data-i18n="row-1-drops-main"><span class='table-icon'>✅</span> YES</span>
                                 <span class="status-sub" data-i18n="row-1-drops-sub">(Chemical)</span>
                             </td>
                             <td>
-                                <span class="icon-circle icon-neg">✕</span>
-                                <span class="status-main" data-i18n="row-1-glasses-main">NO</span>
+                                <span class="status-main" data-i18n="row-1-glasses-main"><span class='table-icon'>❌</span> NO</span>
                                 <span class="status-sub" data-i18n="row-1-glasses-sub">(No Control)</span>
                             </td>
                         </tr>
                         <tr>
                             <td class="row-header" data-i18n="row-2-label">Safety Profile</td>
                             <td class="col-oxylife">
-                                <span class="icon-circle icon-pos">✓</span>
-                                <span class="status-main" data-i18n="row-2-oxylife-main">NON-INVASIVE</span>
-                                <span class="status-sub" data-i18n="row-2-oxylife-sub">(Physical Therapy)</span>
+                                <span class="status-main" data-i18n="row-2-oxylife-main"><span class='table-icon'>✅</span> NON-INVASIVE</span>
+                                <span class="status-sub" data-i18n="row-2-oxylife-sub">(100% Physical / Safe)</span>
                             </td>
                             <td>
-                                <span class="icon-circle icon-neg">✕</span>
-                                <span class="status-main" data-i18n="row-2-ortho-main">INFECTION RISK</span>
+                                <span class="status-main" data-i18n="row-2-ortho-main"><span class='table-icon'>❌</span> INFECTION RISK</span>
                                 <span class="status-sub" data-i18n="row-2-ortho-sub">(Strict Hygiene Required)</span>
                             </td>
                             <td>
-                                <span class="icon-circle icon-neg">✕</span>
-                                <span class="status-main" data-i18n="row-2-drops-main">SIDE EFFECTS</span>
+                                <span class="status-main" data-i18n="row-2-drops-main"><span class='table-icon'>❌</span> SIDE EFFECTS</span>
                                 <span class="status-sub" data-i18n="row-2-drops-sub">(Light Sensitivity / Blur)</span>
                             </td>
                             <td>
-                                <span class="icon-circle icon-neu">-</span>
-                                <span class="status-main" data-i18n="row-2-glasses-main">SAFE</span>
+                                <span class="status-main" data-i18n="row-2-glasses-main"><span class='table-icon'>➖</span> SAFE</span>
                                 <span class="status-sub" data-i18n="row-2-glasses-sub">(No Physical Risk)</span>
                             </td>
                         </tr>
                         <tr>
                             <td class="row-header" data-i18n="row-3-label">Child's Comfort</td>
                             <td class="col-oxylife">
-                                <span class="icon-circle icon-pos">✓</span>
-                                <span class="status-main" data-i18n="row-3-oxylife-main">RELAXING</span>
+                                <span class="status-main" data-i18n="row-3-oxylife-main"><span class='table-icon'>✅</span> RELAXING</span>
                                 <span class="status-sub" data-i18n="row-3-oxylife-sub">(5-min Exercise)</span>
                             </td>
                             <td>
-                                <span class="icon-circle icon-neg">✕</span>
-                                <span class="status-main" data-i18n="row-3-ortho-main">DISCOMFORT</span>
+                                <span class="status-main" data-i18n="row-3-ortho-main"><span class='table-icon'>❌</span> DISCOMFORT</span>
                                 <span class="status-sub" data-i18n="row-3-ortho-sub">(Hard Lens in Eye)</span>
                             </td>
                             <td>
-                                <span class="icon-circle icon-neg">✕</span>
-                                <span class="status-main" data-i18n="row-3-drops-main">STINGING</span>
+                                <span class="status-main" data-i18n="row-3-drops-main"><span class='table-icon'>❌</span> STINGING</span>
                                 <span class="status-sub" data-i18n="row-3-drops-sub">(Daily Chemicals)</span>
                             </td>
                             <td>
-                                <span class="icon-circle icon-neg">✕</span>
-                                <span class="status-main" data-i18n="row-3-glasses-main">DEPENDENCY</span>
+                                <span class="status-main" data-i18n="row-3-glasses-main"><span class='table-icon'>❌</span> DEPENDENCY</span>
                                 <span class="status-sub" data-i18n="row-3-glasses-sub">(Heavy / Inconvenient)</span>
                             </td>
                         </tr>
                         <tr>
                             <td class="row-header" data-i18n="row-4-label">Long-Term Cost</td>
                             <td class="col-oxylife">
-                                <span class="icon-circle icon-pos">✓</span>
-                                <span class="status-main" data-i18n="row-4-oxylife-main">FIXED FEE</span>
+                                <span class="status-main" data-i18n="row-4-oxylife-main"><span class='table-icon'>✅</span> FIXED FEE</span>
                                 <span class="status-sub" data-i18n="row-4-oxylife-sub">(One-time Investment)</span>
                             </td>
                             <td>
-                                <span class="icon-circle icon-neg">✕</span>
-                                <span class="status-main" data-i18n="row-4-ortho-main">RECURRING</span>
+                                <span class="status-main" data-i18n="row-4-ortho-main"><span class='table-icon'>❌</span> RECURRING</span>
                                 <span class="status-sub" data-i18n="row-4-ortho-sub">(Pay Every Year)</span>
                             </td>
                             <td>
-                                <span class="icon-circle icon-neg">✕</span>
-                                <span class="status-main" data-i18n="row-4-drops-main">RECURRING</span>
+                                <span class="status-main" data-i18n="row-4-drops-main"><span class='table-icon'>❌</span> RECURRING</span>
                                 <span class="status-sub" data-i18n="row-4-drops-sub">(Pay Every Month)</span>
                             </td>
                             <td>
-                                <span class="icon-circle icon-neg">✕</span>
-                                <span class="status-main" data-i18n="row-4-glasses-main">RECURRING</span>
+                                <span class="status-main" data-i18n="row-4-glasses-main"><span class='table-icon'>❌</span> RECURRING</span>
                                 <span class="status-sub" data-i18n="row-4-glasses-sub">(Pay Lifetime)</span>
                             </td>
                         </tr>
@@ -1196,7 +1202,7 @@
     <section id="reviews" class="section testimonials-section">
         <div class="container">
             <div class="section-header">
-                <h2>Real Results Backed By Data</h2>
+                <h2 data-i18n="reviews-title">Real Results Backed By Data</h2>
             </div>
             <div class="testimonials-grid">
                 
@@ -1278,7 +1284,7 @@
     <section id="eligibility" class="section cta-section">
         <div class="container cta-layout">
             <div class="cta-visual">
-                <img src="images/cta.png" alt="Vision Chart" style="width: 100%; max-width: 500px; height: auto; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <div class="placeholder-img" style="min-height: 250px; background: rgba(255,255,255,0.2); color: white;">Chart Placeholder</div>
                 <p class="caption" style="margin-top:10px; opacity:0.8; font-size:0.9rem; color: white;" data-i18n="cta-chart-caption">Vision Test Chart...</p>
             </div>
             
@@ -1342,7 +1348,7 @@
     </a>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        function init() {
             console.log('OxyLife Selangor Website Loaded');
 
             // Smooth scrolling
@@ -1354,22 +1360,6 @@
                         target.scrollIntoView({ behavior: 'smooth' });
                     }
                 });
-            });
-
-            // Animations
-            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('section').forEach(section => {
-                section.classList.add('fade-in');
-                observer.observe(section);
             });
 
             // Localization
@@ -1411,44 +1401,46 @@
                     "table-glasses": "Standard Glasses (Hardware)",
 
                     "row-1-label": "Control Eye Power?",
-                    "row-1-oxylife-main": "YES",
-                    "row-1-ortho-main": "YES",
+                    "row-1-oxylife-main": "<span class='table-icon'>✅</span> YES",
+                    "row-1-oxylife-sub": "(Strengthens eye muscles)",
+                    "row-1-ortho-main": "<span class='table-icon'>✅</span> YES",
                     "row-1-ortho-sub": "(Temporary)",
-                    "row-1-drops-main": "YES",
+                    "row-1-drops-main": "<span class='table-icon'>✅</span> YES",
                     "row-1-drops-sub": "(Chemical)",
-                    "row-1-glasses-main": "NO",
+                    "row-1-glasses-main": "<span class='table-icon'>❌</span> NO",
                     "row-1-glasses-sub": "(No Control)",
 
                     "row-2-label": "Safety Profile",
-                    "row-2-oxylife-main": "NON-INVASIVE",
-                    "row-2-oxylife-sub": "(Physical Therapy)",
-                    "row-2-ortho-main": "INFECTION RISK",
+                    "row-2-oxylife-main": "<span class='table-icon'>✅</span> NON-INVASIVE",
+                    "row-2-oxylife-sub": "(100% Physical / Safe)",
+                    "row-2-ortho-main": "<span class='table-icon'>❌</span> INFECTION RISK",
                     "row-2-ortho-sub": "(Strict Hygiene Required)",
-                    "row-2-drops-main": "SIDE EFFECTS",
+                    "row-2-drops-main": "<span class='table-icon'>❌</span> SIDE EFFECTS",
                     "row-2-drops-sub": "(Light Sensitivity / Blur)",
-                    "row-2-glasses-main": "SAFE",
+                    "row-2-glasses-main": "<span class='table-icon'>➖</span> SAFE",
                     "row-2-glasses-sub": "(No Physical Risk)",
 
                     "row-3-label": "Child's Comfort",
-                    "row-3-oxylife-main": "RELAXING",
+                    "row-3-oxylife-main": "<span class='table-icon'>✅</span> RELAXING",
                     "row-3-oxylife-sub": "(5-min Exercise)",
-                    "row-3-ortho-main": "DISCOMFORT",
+                    "row-3-ortho-main": "<span class='table-icon'>❌</span> DISCOMFORT",
                     "row-3-ortho-sub": "(Hard Lens in Eye)",
-                    "row-3-drops-main": "STINGING",
+                    "row-3-drops-main": "<span class='table-icon'>❌</span> STINGING",
                     "row-3-drops-sub": "(Daily Chemicals)",
-                    "row-3-glasses-main": "DEPENDENCY",
+                    "row-3-glasses-main": "<span class='table-icon'>❌</span> DEPENDENCY",
                     "row-3-glasses-sub": "(Heavy / Inconvenient)",
 
                     "row-4-label": "Long-Term Cost",
-                    "row-4-oxylife-main": "FIXED FEE",
+                    "row-4-oxylife-main": "<span class='table-icon'>✅</span> FIXED FEE",
                     "row-4-oxylife-sub": "(One-time Investment)",
-                    "row-4-ortho-main": "RECURRING",
+                    "row-4-ortho-main": "<span class='table-icon'>❌</span> RECURRING",
                     "row-4-ortho-sub": "(Pay Every Year)",
-                    "row-4-drops-main": "RECURRING",
+                    "row-4-drops-main": "<span class='table-icon'>❌</span> RECURRING",
                     "row-4-drops-sub": "(Pay Every Month)",
-                    "row-4-glasses-main": "RECURRING",
+                    "row-4-glasses-main": "<span class='table-icon'>❌</span> RECURRING",
                     "row-4-glasses-sub": "(Pay Lifetime)",
 
+                    "reviews-title": "Real Results Backed By Data",
                     "testi-1-stat-1": "-125deg",
                     "testi-1-label-1": "MYOPIA IMPROVED",
                     "testi-1-stat-2": "-75deg",
@@ -1488,12 +1480,12 @@
                 cn: {
                     "nav-contact-btn": "联系我们",
                     "hero-trust": "42年韩国研发 • 马来西亚9年口碑",
-                    "hero-title": "别让孩子的近视越来越深",
-                    "hero-subtitle": "无需手术。无需眼镜。每次只需5分钟。",
+                    "hero-title": "别让孩子的近视<br>越来越深",
+                    "hero-subtitle": "无需手术。无需眼镜。<br>每次只需5分钟。",
                     "hero-cta": "开始视力训练",
                     "mda-title": "获得马来西亚 MDA 认证",
                     "mda-desc": "首款获得 FDA 及 马来西亚 MDA 双重认证的视力治疗仪。",
-                    "problem-main-title": "为什么眼镜治不好近视",
+                    "problem-main-title": "为什么眼镜<br>治不好近视",
                     "problem-main-subtitle": "了解传统方法为什么无法根治近视。",
                     "problem-1-title": "1. 根本原因",
                     "problem-1-desc": "看手机，看书太久，眼睛里的调节肌肉僵硬了，就像腿抽筋一样。",
@@ -1521,45 +1513,47 @@
                     "table-drops": "眼药水 (阿托品)",
                     "table-glasses": "普通眼镜 (只是工具)",
 
-                    "row-1-label": "真能控制度数?",
-                    "row-1-oxylife-main": "可以",
-                    "row-1-ortho-main": "可以",
-                    "row-1-ortho-sub": "(暂时压制)",
-                    "row-1-drops-main": "可以",
-                    "row-1-drops-sub": "(靠药物)",
-                    "row-1-glasses-main": "不能",
-                    "row-1-glasses-sub": "(完全失控)",
+                    "row-1-label": "防控原理",
+                    "row-1-oxylife-main": "<span class='table-icon'>✅</span> 视力训练",
+                    "row-1-oxylife-sub": "(强化眼部肌肉)",
+                    "row-1-ortho-main": "<span class='table-icon'>⚠️</span> 角膜塑形",
+                    "row-1-ortho-sub": "(物理压迫眼球)",
+                    "row-1-drops-main": "<span class='table-icon'>⚠️</span> 药物散瞳",
+                    "row-1-drops-sub": "(麻痹调节肌肉)",
+                    "row-1-glasses-main": "<span class='table-icon'>❌</span> 被动辅助",
+                    "row-1-glasses-sub": "(就像眼睛的拐杖)",
 
-                    "row-2-label": "安全吗?",
-                    "row-2-oxylife-main": "非侵入性",
-                    "row-2-oxylife-sub": "(纯物理训练, 最安全)",
-                    "row-2-ortho-main": "有感染风险",
-                    "row-2-ortho-sub": "(每天都要接触眼球)",
-                    "row-2-drops-main": "有副作用",
-                    "row-2-drops-sub": "(孩子会怕光、看不清)",
-                    "row-2-glasses-main": "安全",
-                    "row-2-glasses-sub": "(但无法治疗)",
+                    "row-2-label": "安全性",
+                    "row-2-oxylife-main": "<span class='table-icon'>✅</span> 非侵入式",
+                    "row-2-oxylife-sub": "(纯物理，无副作用)",
+                    "row-2-ortho-main": "<span class='table-icon'>⚠️</span> 侵入性接触",
+                    "row-2-ortho-sub": "(需极严苛卫生标准)",
+                    "row-2-drops-main": "<span class='table-icon'>⚠️</span> 药物副作用",
+                    "row-2-drops-sub": "(畏光 / 视物模糊)",
+                    "row-2-glasses-main": "<span class='table-icon'>➖</span> 基础安全",
+                    "row-2-glasses-sub": "(但无治疗效果)",
 
-                    "row-3-label": "孩子肯配合吗?",
-                    "row-3-oxylife-main": "轻松",
-                    "row-3-oxylife-sub": "(每天5分钟, 边玩边做)",
-                    "row-3-ortho-main": "很难受",
-                    "row-3-ortho-sub": "(眼睛里有异物感)",
-                    "row-3-drops-main": "刺痛",
-                    "row-3-drops-sub": "(每天点药水会抗拒)",
-                    "row-3-glasses-main": "会有依赖",
-                    "row-3-glasses-sub": "(生活很不方便)",
+                    "row-3-label": "孩子体验",
+                    "row-3-oxylife-main": "<span class='table-icon'>✅</span> 轻松坚持",
+                    "row-3-oxylife-sub": "(每天5分钟，边玩边做)",
+                    "row-3-ortho-main": "<span class='table-icon'>❌</span> 异物感强",
+                    "row-3-ortho-sub": "(孩子易哭闹抗拒)",
+                    "row-3-drops-main": "<span class='table-icon'>❌</span> 每日刺痛",
+                    "row-3-drops-sub": "(抗拒滴药 / 畏惧强光)",
+                    "row-3-glasses-main": "<span class='table-icon'>❌</span> 生活累赘",
+                    "row-3-glasses-sub": "(运动不便 / 易摔坏)",
 
-                    "row-4-label": "长期算下来贵吗?",
-                    "row-4-oxylife-main": "一次性费用",
-                    "row-4-oxylife-sub": "(全家能用, 最划算)",
-                    "row-4-ortho-main": "持续费用",
-                    "row-4-ortho-sub": "(每年)",
-                    "row-4-drops-main": "持续费用",
-                    "row-4-drops-sub": "(每个月)",
-                    "row-4-glasses-main": "持续费用",
-                    "row-4-glasses-sub": "(一辈子)",
+                    "row-4-label": "长期费用",
+                    "row-4-oxylife-main": "<span class='table-icon'>✅</span> 一次性投资",
+                    "row-4-oxylife-sub": "(全家适用，不再花钱)",
+                    "row-4-ortho-main": "<span class='table-icon'>❌</span> 持续年费",
+                    "row-4-ortho-sub": "(每年换镜，费用高昂)",
+                    "row-4-drops-main": "<span class='table-icon'>❌</span> 长期药单",
+                    "row-4-drops-sub": "(每月必需支出)",
+                    "row-4-glasses-main": "<span class='table-icon'>❌</span> 频繁换镜",
+                    "row-4-glasses-sub": "(度数一涨就要掏钱)",
 
+                    "reviews-title": "用户体验",
                     "testi-1-stat-1": "-125度",
                     "testi-1-label-1": "近视改善",
                     "testi-1-stat-2": "-75度",
@@ -1607,7 +1601,8 @@
                 if (!langData) return;
                 document.querySelectorAll('[data-i18n]').forEach(element => {
                     const key = element.getAttribute('data-i18n');
-                    if (langData[key]) element.textContent = langData[key];
+                    // Changed from textContent to innerHTML to support <br>
+                    if (langData[key]) element.innerHTML = langData[key];
                 });
                 if (langToggle) langToggle.textContent = currentLang === 'en' ? '中文' : 'English';
             }
@@ -1619,8 +1614,14 @@
                 });
             }
             updateContent();
-        });
+        }
+
+        // Initialize immediately if DOM is ready, otherwise wait
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
     </script>
 </body>
 </html>
-
