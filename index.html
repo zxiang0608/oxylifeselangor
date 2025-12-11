@@ -26,13 +26,13 @@
             /* COLORS */
             --primary-blue: #0f4c81;        
             --text-heading: #0F2138;        
-            --text-body: #334155;           
-            --text-light: #64748b;          
-            --text-legal: #94A3B8;          
+            --text-body: #334155;            
+            --text-light: #64748b;           
+            --text-legal: #94A3B8;           
             --bg-white: #ffffff;
             
             --accent-teal: #06b6d4;         
-            --accent-bg: #e0f2fe;           
+            --accent-bg: #e0f2fe;            
             --success-green: #10b981;
             
             /* TABLE COLORS */
@@ -44,13 +44,13 @@
             --text-sub: #666666;
 
             /* TESTIMONIAL COLORS */
-            --data-bg: #E0FDF4;            
-            --data-text: #064E3B;          
-            --label-text: #059669;         
-            --badge-bg: #FFF7ED;           
-            --badge-text: #D97706;         
-            --verified-bg: #D1FAE5;        
-            --verified-text: #065F46;      
+            --data-bg: #E0FDF4;             
+            --data-text: #064E3B;           
+            --label-text: #059669;          
+            --badge-bg: #FFF7ED;            
+            --badge-text: #D97706;          
+            --verified-bg: #D1FAE5;         
+            --verified-text: #065F46;       
 
             /* WHATSAPP GREEN */
             --whatsapp-green: #25D366;
@@ -952,20 +952,24 @@
         }
     </style>
 
+    <!-- Facebook Pixel Code -->
     <script>
-        /* Facebook Pixel Code - Commented out for preview stability
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1179069353627076');
-        fbq('track', 'PageView');
-        */
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1179069353627076');
+    fbq('track', 'PageView');
     </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1179069353627076&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+
 </head>
 <body>
 
@@ -1283,7 +1287,7 @@
                 <h2 data-i18n="cta-title">Give Us 15 Minutes. Witness Vision Improvement.</h2>
                 <h4 data-i18n="cta-subtitle">A risk-free trial to prove it works before you commit.</h4>
                 <p data-i18n="cta-body">Many parents are skeptical at first...</p>
-                <a href="https://wa.link/0lkjv8" class="btn-primary btn-green" target="_blank" data-i18n="cta-btn">Free Consultation</a>
+                <a id="consultation-btn" href="https://wa.link/0lkjv8" class="btn-primary btn-green" target="_blank" data-i18n="cta-btn">Free Consultation</a>
             </div>
         </div>
     </section>
@@ -1293,7 +1297,7 @@
             <div class="footer-grid">
                 
                 <div class="footer-col">
-             
+               
                     <p style="opacity: 0.7; font-size: 0.9rem;">Oxylife Selangor</p>
                     <div class="footer-links">
                         <a href="#">Privacy Policy</a>
@@ -1352,6 +1356,39 @@
                     }
                 });
             });
+
+            // ============================================
+            //  FACEBOOK PIXEL TRACKING SETUP
+            // ============================================
+            
+            // 1. Track the Main "Free Consultation" Button
+            const consultBtn = document.getElementById('consultation-btn');
+            if (consultBtn) {
+                consultBtn.addEventListener('click', function() {
+                    // Fire the 'Contact' event
+                    if (typeof fbq !== 'undefined') {
+                        fbq('track', 'Contact', {
+                            content_name: 'Free Consultation CTA',
+                            content_category: 'WhatsApp Lead'
+                        });
+                        console.log('FB Pixel: Contact Event Fired (CTA Section)');
+                    }
+                });
+            }
+
+            // 2. Track the Sticky Floating WhatsApp Button
+            const floatBtn = document.querySelector('.whatsapp-float');
+            if (floatBtn) {
+                floatBtn.addEventListener('click', function() {
+                    if (typeof fbq !== 'undefined') {
+                        fbq('track', 'Contact', {
+                            content_name: 'Floating Button',
+                            content_category: 'WhatsApp Lead'
+                        });
+                        console.log('FB Pixel: Contact Event Fired (Floating)');
+                    }
+                });
+            }
 
             // Localization
             const translations = {
